@@ -1,0 +1,199 @@
+@use 'core.scss' as *;
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+
+html {
+	box-sizing: border-box;
+}
+
+:root {
+    --mv-box-size: 30px;
+    --mv-background-color: var(--mv-primary-color);
+    --mv-background-color-hover: var(--mv-secondary-color);
+    --mv-animation-duration: .3s;
+    --mv-animation-name: none;
+    --mv-transition-duration: .3s;
+    --mv-rotate: 0deg;
+    --mv-translate-x: 0px;
+    --mv-translate-y: 0px;
+    --mv-spacing-inline: 30px;
+    --mv-spacing-block: 30px;
+    --mv-highlight-color: #B0FF4E;
+    --mv-line-color: rgba(0, 0, 0, .15);
+    --mv-height: 1px;
+    --mv-border-style: solid;
+    --mv-border-color: #000;
+    --mv-color: #000;
+    --mv-columns-1: 100%;
+    --mv-columns-2: 50%;
+    --mv-columns-3: 33.333333333%;
+    --mv-columns-4: 25%;
+    --mv-columns-5: 20%;
+    --mv-columns-6: 16.666666666%;
+    --mv-width: 100%;
+    --mv-height: 100%;
+    --mv-grid-size: 50%;
+    --mv-line-thickness: 1px;
+    --mv-angle: 0deg;
+    --mv-gap: 15px;
+}
+
+body {
+    background-color: var(--mv-body-bg-color, transparent);
+    font-family: var(--mv-primary-font), sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #626262;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &.body-overflow {
+        overflow: hidden;
+    }    
+}
+
+a {
+    cursor: pointer;
+    color: var(--mv-link-color);
+    text-decoration: none;
+    @include transition;
+    &:hover {
+        color: var(--mv-link-hover-color);
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--mv-heading-color);
+    font-family: var(--mv-heading-font);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 1.288571;
+    letter-spacing: -2.8px;
+    @media #{$max-xl} {
+        font-size: 66px;
+    }
+    @media #{$max-lg} {
+        font-size: 60px;
+        letter-spacing: -2.5px;
+    }
+    @media #{$max-md} {
+        font-size: 52px;
+    }
+    @media #{$max-sm} {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+    @media #{$max-xs} {
+        font-size: 30px;
+    }
+}
+h2 {
+    font-size: 40px;
+    line-height: 1.3;
+    letter-spacing: -1.6px;
+    @media #{$max-xl} {
+        font-size: 38px;
+    }
+    @media #{$max-lg} {
+        font-size: 34px;
+    }
+    @media #{$max-md} {
+        font-size: 32px;
+    }
+    @media #{$max-sm} {
+        font-size: 30px;
+        letter-spacing: -1px;
+    }
+    @media #{$max-xs} {
+        font-size: 28px;
+    }
+}
+h3 {
+    font-size: 24px;
+    line-height: 1.08333;
+    letter-spacing: -0.96px;
+    @media #{$max-lg} {
+        font-size: 22px;
+    }
+    @media #{$max-lg} {
+        font-size: 20px;
+    }
+}
+h4 {
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0;
+    @media #{$max-xs} {
+        font-size: 18px;
+    }
+}
+h5 {
+    font-size: 18px;
+    line-height: 1.22222;
+    letter-spacing: -0.72px;
+}
+h6 {
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.64px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+svg:not(.svg-origintal) {
+    circle[fill]:not([fill^="url("]) {
+        stroke: currentColor;
+        stroke-opacity: 1;
+    }
+    path[fill]:not([fill^="url("]), rect[fill]:not([fill^="url("]) {
+        fill: currentColor;
+        fill-opacity: 1;
+    }
+    path[stroke^="#"], path[stroke="black"], path[stroke="white"] {
+        stroke: currentColor;
+    }
+
+}
+
+input, textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    &::placeholder {
+        color: inherit;
+    }
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+    height: auto;
+}

@@ -1,0 +1,269 @@
+@use 'core.scss' as *;
+
+/**
+*
+*/
+.direction-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    // background-color: red;
+    border-radius: inherit;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/** 
+* Transition Fill Animation 
+*/
+@keyframes transition-fill-in-top {
+    from { transform: translate3d(0, -101%, 0); }
+    to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes transition-fill-in-right {
+    from { transform: translate3d(101%, 0, 0); }
+    to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes transition-fill-in-bottom {
+    from { transform: translate3d(0, 101%, 0); }
+    to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes transition-fill-in-left {
+    from { transform: translate3d(-101%, 0, 0); }
+    to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes transition-fill-out-top {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(0, -101%, 0); }
+}
+
+@keyframes transition-fill-out-right {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(101%, 0, 0); }
+}
+
+@keyframes transition-fill-out-bottom {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(0, 101%, 0); }
+}
+
+@keyframes transition-fill-out-left {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-101%, 0, 0); }
+}
+.transition-fill-in-top .direction-item {
+    transform-origin: 50% 0%;
+    animation: transition-fill-in-top .35s ease 0ms 1 forwards;
+}
+.transition-fill-in-right .direction-item {
+    transform-origin: 100% 0%;
+    animation: transition-fill-in-right .35s ease 0ms 1 forwards;
+}
+.transition-fill-in-bottom .direction-item {
+    transform-origin: 50% 100%;
+    animation: transition-fill-in-bottom .35s ease 0ms 1 forwards;
+}
+.transition-fill-in-left .direction-item {
+    transform-origin: 0% 0%;
+    animation: transition-fill-in-left .35s ease 0ms 1 forwards;
+}
+.transition-fill-out-top .direction-item {
+    transform-origin: 50% 0%;
+    animation: transition-fill-out-top .35s ease 0ms 1 forwards;
+}
+.transition-fill-out-right .direction-item {
+    transform-origin: 100% 50%;
+    animation: transition-fill-out-right .35s ease 0ms 1 forwards;
+}
+.transition-fill-out-bottom .direction-item {
+    transform-origin: 50% 100%;
+    animation: transition-fill-out-bottom .35s ease 0ms 1 forwards;
+}
+.transition-fill-out-left .direction-item {
+    transform-origin: 0% 0%;
+    animation: transition-fill-out-left .35s ease 0ms 1 forwards;
+}
+[data-hover="transition-fill-animation"] {
+    position: relative;
+    overflow: hidden;
+    &.is-active {
+        .direction-item {
+            transform: translate3d(0, 0, 0) !important;
+            transition: transform .35s linear .35s;
+        }
+    }
+    .direction-item {
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+/**
+* Rotation Fill Animation 
+*/
+@keyframes rotation-fill-in-top {
+    from {transform: rotate3d(-1,0,0, 90deg)}
+    to   {transform: rotate3d(0,0,0, 0deg)}
+}
+@keyframes rotation-fill-in-right {
+    from {transform: rotate3d(0,-1,0, 90deg)}
+    to   {transform: rotate3d(0,0,0, 0deg)}
+}
+@keyframes rotation-fill-in-bottom {
+    from {transform: rotate3d(1,0,0, 90deg)}
+    to   {transform: rotate3d(0,0,0, 0deg)}
+}
+@keyframes rotation-fill-in-left {
+    from {transform: rotate3d(0,1,0, 90deg)}
+    to   {transform: rotate3d(0,0,0, 0deg)}
+}
+
+@keyframes rotation-fill-out-top {
+    from {transform: rotate3d(0,0,0, 0deg)}
+    to   {transform: rotate3d(-1,0,0, 180deg)}
+}
+@keyframes rotation-fill-out-right {
+    from {transform: rotate3d(0,0,0, 0deg)}
+    to   {transform: rotate3d(0,-1,0, 180deg)}
+}
+@keyframes rotation-fill-out-bottom {
+    from {transform: rotate3d(0,0,0, 0deg)}
+    to   {transform: rotate3d(1,0,0, 180deg)}
+}
+@keyframes rotation-fill-out-left {
+    from {transform: rotate3d(0,0,0, 0deg)}
+    to   {transform: rotate3d(0,1,0, 180deg)}
+}
+.rotation-fill-in-top .direction-item {
+    transform-origin: 50% 0%;
+    animation: rotation-fill-in-top .35s ease 0ms 1 forwards;
+ }
+.rotation-fill-in-right .direction-item {
+    transform-origin: 100% 0%;
+    animation: rotation-fill-in-right .35s ease 0ms 1 forwards;
+}
+.rotation-fill-in-bottom .direction-item {
+    transform-origin: 50% 100%;
+    animation: rotation-fill-in-bottom .35s ease 0ms 1 forwards;
+}
+.rotation-fill-in-left .direction-item {
+    transform-origin: 0% 0%;
+    animation: rotation-fill-in-left .35s ease 0ms 1 forwards;
+}
+.rotation-fill-out-top .direction-item {
+    transform-origin: 50% 0%;
+    animation: rotation-fill-out-top .35s ease 0ms 1 forwards;
+}
+.rotation-fill-out-right .direction-item {
+    transform-origin: 100% 50%;
+    animation: rotation-fill-out-right .35s ease 0ms 1 forwards;
+}
+.rotation-fill-out-bottom .direction-item {
+    transform-origin: 50% 100%;
+    animation: rotation-fill-out-bottom .35s ease 0ms 1 forwards;
+}
+.rotation-fill-out-left .direction-item {
+    transform-origin: 0% 0%;
+    animation: rotation-fill-out-left .35s ease 0ms 1 forwards;
+}
+[data-hover="rotation-fill-animation"] {
+    position: relative;
+    perspective: 400px;
+    overflow: hidden;
+    .direction-item {
+        transform: rotate3d(1,0,0, 90deg);
+    }
+}
+
+
+/**
+* Image Hover
+*/
+img {
+    &[data-hover="distortionTransition"] {
+        + canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;        
+        }
+    }
+}
+
+.image-wrapper, .image {
+    position: relative;
+    &:has([data-hover="overlayShine"]) {
+        &::after {
+            position: absolute;
+            top: 0;
+            left: -85%;
+            display: block;
+            content: '';
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+            transform: skewX(-25deg);
+            transition: left .75s ease;
+            pointer-events: none;
+            z-index: 9;
+        }
+        &:hover {
+            &::after {
+                left: 125%;
+            }
+        }
+    }
+}
+.button[data-hover="overlayShine"] {
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        display: block;
+        content: '';
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+        transform: skew(-20deg);
+        transition: left .75s ease;
+        pointer-events: none;
+        z-index: 9;
+        filter: blur(15px);
+    }
+    &:hover {
+        &::after {
+            left: 150%;
+        }
+    }
+}
+
+[data-hover="spotlightFill"] {
+    position: relative;
+    &::before {
+        display: none;
+    }
+    .spotlight-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 25px;
+        height: 25px;
+        background: var(--mv-background-color-hover);
+        z-index: 0;
+        border-radius: 50%;
+        scale: 0;
+    }
+}
+
+[data-hover="followCursor"] {
+    transition: none !important;
+    will-change: "transform",
+}

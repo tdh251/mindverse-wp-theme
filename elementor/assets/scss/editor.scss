@@ -1,0 +1,47 @@
+@use '../../../assets/scss/core' as *;
+
+.elementor-editor-active {
+    .e-con.e-parent {
+        --container-default-padding-right: 0;
+        --container-default-padding-left: 0;
+    }
+    .elementor-element[data-nesting-level="0"] {
+        --container-default-padding-right: 15px;
+        --container-default-padding-left: 15px;
+    }
+    .elementor-widget-mindverse_image {
+        line-height: 0;
+    }
+    .header, .footer {
+        pointer-events: none;
+        opacity: 1;
+    }
+
+    .price-table {
+        .grid .grid-inner{
+            height: auto !important;
+        }
+    }
+
+    .button-play-video {
+        // pointer-events: none;
+    }
+
+    .wow, [data-text-animation], [data-gsap-animation], [data-scrolling-effects] {
+        visibility: visible;
+    }
+    
+    #header-sticky {
+        display: none;
+    }
+
+    .single-career {
+        // .e-con .elementor-widget.elementor-widget {
+        //     margin-block-end: var(--my-custom-margin, 0);
+        // }
+    }
+}
+
+.elementor-editor-active.single-pxl-template {
+    background-color: #999;
+}

@@ -1,0 +1,245 @@
+@use '../../../../assets/scss/core' as *;
+
+/** Card Image */
+.card-image-carousel {
+    // .card-image
+}
+
+.feature-card-carousel, .feature-card-grid {
+    .feature-card {
+        position: relative;
+        @include d-flex(30px);
+        flex-direction: column;
+        &-image {
+            @include d-inline-flex;
+        }
+        &-content {
+            @include d-flex(15px);
+            flex-direction: column;
+        }
+        &-title {
+            > a {
+                color: inherit;
+            }
+        }
+    }
+    &[data-layout="1"] {
+        --mv-spacing-inline: 140px;
+        @media #{$max-xl} {
+            --mv-spacing-inline: 70px;
+        }
+        @media #{$max-lg} {
+            --mv-spacing-inline: 50px;
+        }
+        @media #{$max-md} {
+            --mv-spacing-inline: 30px;
+        }
+        .feature-card {
+            gap: 41px;
+            align-items: center;
+            height: 100%;
+            justify-content: space-between;
+            &-curve {
+                position: absolute;
+                left: 50%;
+                top: 30px;
+                transform: translateX(-50%);
+                color: #000000;
+                width: 80%;
+                @media #{$max-sm} {
+                    display: none;
+                }
+            }
+            &-image {
+                align-items: end;
+                justify-content: center;
+            }
+            &-content {
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+            }
+            &-title {
+                color: #000C60;
+            }
+            &-description {
+               @include text-fin-p2;
+               color: #626262; 
+            }
+        }
+    }
+    &[data-layout="2"] {
+        --mv-spacing-inline: 20px;
+        --mv-spacing-block: 19px;
+        --mv-grid-size: 33.3333%;
+        @media #{$max-lg} {
+            --mv-grid-size: 50%;
+        }
+        @media #{$max-sm} {
+            --mv-grid-size: 100%;
+        }
+        .feature-card {
+            min-height: 447px;
+            padding: 35px 30px 44px 40px;
+            justify-content: space-between;
+            border: thin solid #E5E7EB;
+            background-color: #FFFFFF;
+            border-radius: 25px;
+            @media #{$max-sm} {
+                min-height: 400px;
+                padding: 30px;
+            }
+            @media #{$max-xs} {
+                padding: 30px 15px;
+            }
+            &-content {
+                gap: 0;
+            }
+            &-title {
+                display: block;
+                margin-bottom: 10px;
+            }
+            &-description {
+                display: block;
+                margin-bottom: 27px;
+                @include text-fin-p2;
+                color: #626262;
+            }
+            &-link {
+                font-size: 15px;
+                font-weight: 500;
+                display: inline-flex;
+                @include text-fin-button;
+                color: #060F16;
+            }
+        }
+    }
+
+    &[data-layout="3"] {
+        --mv-spacing-inline: 20px;
+        --mv-spacing-block: 40px;
+        --mv-grid-size: 33.3333%;
+        @media #{$max-lg} {
+            --mv-grid-size: 50%;
+        }
+        @media #{$max-sm} {
+            --mv-grid-size: 100%;
+        }
+        .feature-card {
+            position: relative;
+            padding: 49px 26px 38px 31px;
+            border-radius: 14.833px;
+            border: thin solid #EBEBEB;
+            background-color: #F9F9F9;
+            gap: 0;
+            h3 {
+                @media #{$mm-xl} {
+                    font-size: 22px;
+                }
+            }
+            &-category {
+                position: absolute;
+                left: 31px;
+                top: 0;
+                transform: translateY(-50%);
+                color: #FFF;
+                border-radius: 6px;
+                background-color: #0A0A0E;
+                padding: 1.5px 17px;
+                color: #FFF;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            &-title {
+                color: #060F16;
+            }
+            &-description {
+                color: #626262;
+                @include text-fin-p2;
+                margin-bottom: 22px;
+            }
+            &-badges {
+                @include d-flex(15px);
+                flex-wrap: wrap;
+                margin-bottom: 30px;
+                .badge {
+                    border-radius: 6px;
+                    background-color: rgba($color: #DEB8FF, $alpha: .15);
+                    padding: 5px 8px;
+                    @include text-p4;
+                    color: #8000FF;
+                }
+            }
+            &-links {
+                @include d-flex(20px);
+                flex-wrap: wrap;
+                .link {
+                    color: #060F16;
+                    @include text-fin-button-2;
+                    &.link-2 {
+                        color: #2563EB;
+                    }
+                }
+            }
+        }
+    }
+    &[data-layout="4"] {
+        --mv-spacing-inline: 34px;
+        --mv-spacing-block: 23px;
+        @media #{$max-sm} {
+            --mv-grid-size: 100%;
+        }
+        .feature-card {
+            border-radius: 25px;
+            background-color: #FFF;
+            box-shadow: 0 54px 99px 0 rgba(52, 78, 170, 0.07);
+            backdrop-filter: blur(10px);
+            padding: 16px 14.5px 45px;
+            gap: 37px;
+            @media  #{$max-sm} {
+                gap: 35px;
+                padding: 10px 10px 30px;
+            }
+            div.feature-card-title {
+                font-size: 22px;
+                @media  #{$max-xs} {
+                    font-size: 20px;
+                }
+            }
+            &-image {
+                overflow: hidden;
+                border-radius: 25px;
+                img {
+                    width: 100%;
+                }
+            }
+            &-title {
+                color: #002B2B;
+                font-family: "DM Sans";
+                font-weight: 500;
+                line-height: 1.31818;
+                margin-bottom: 5px;
+            }
+            &-content {
+                padding-inline: 25px;
+                gap: 0;
+                @media #{$max-lg} {
+                    padding: 0;
+                }
+            }
+            &-description {
+                color: #5F6A77;
+                font-family: "DM Sans";
+                line-height: 1.625;
+                margin-bottom: 29px;
+            }
+            &-link {
+                color: #002B2B;
+                font-family: "Space Grotesk"; 
+                text-transform: uppercase;
+                @include text-b2;
+                line-height: 1.38667;
+            }
+        }
+    }
+}

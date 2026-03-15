@@ -1,0 +1,71 @@
+@use 'core.scss' as *;
+
+.error404 {
+    #main {
+        padding-inline: 15px;
+        .main-inner {
+            @include d-flex(null, center, center);
+            flex-direction: column;
+            min-height: 100vh;
+            height: 100%;
+            max-width: 1300px;
+            padding-block: 120px;
+            text-align: center;
+            margin: 0 auto;
+            @media #{$max-lg} {
+                padding-block: 105px;
+            }
+            @media #{$max-sm} {
+                padding-block: 90px;
+            }
+        }
+    }
+    .page-heading {
+        margin-bottom: 30px;
+    }
+    .page-title {
+        display: block;
+        font-weight: 700;
+        font-size: 150px;
+        margin-bottom: 5px;
+        @media #{$max-xl} {
+            font-size: 140px;
+        }
+        @media #{$max-lg} {
+            font-size: 130px;
+        }
+        @media #{$max-md} {
+            font-size: 120px;
+        }
+        @media #{$max-sm} {
+            font-size: 110px;
+        }
+        @media #{$max-xs} {
+            font-size: 100px;
+        }
+    }
+    .page-subtitle {
+        font-size: 32px;
+        font-weight: 500;
+        @media #{$max-lg} {
+            font-size: 28px;
+        }
+        @media #{$max-sm} {
+            font-size: 24px;
+        }
+    }
+    .button-back {
+        padding-inline: 32px;
+        height: 46px;
+        border-radius: 5px;
+        background-color: #000;
+        border: thin solid #000;
+        color: #FFF;
+        &::before {
+            background-color: #FFF;
+        }
+        &:hover {
+            color: #000;
+        }
+    }
+}

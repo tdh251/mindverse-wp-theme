@@ -1,0 +1,174 @@
+// ===================================================================
+// UTILITIES
+// ===================================================================
+//Contains utility and helper classes common to the entire website.
+// ===================================================================
+
+@use 'core.scss' as *;
+
+.icon-hamburger {
+    overflow: hidden;
+	width: 36px;
+	height: 24px;
+	position: relative; 
+    .line {
+		height: 3.5px;
+		position: absolute;
+		right: 0;
+		border-radius: 3px;
+		&:before, &:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			background-color: currentColor;
+			opacity: 1;
+			border-radius: 3px;
+		}
+		&:before {
+			transform: translate3d(100%,0,0);
+		}
+		&:after {
+			transform: translate3d(0,0,0);
+		}
+		&-1 {
+			top: 0;
+			width: 28px;
+		}
+		&-2 {
+			top: 50%;
+			width: 100%;
+			transform: translateY(-50%);
+		}
+		&-3 {
+			bottom: 0;
+			width: 18px;
+		}
+	}
+	button:hover & {
+		.line-1 {
+			&:before {
+				transform: translate3d(0,0,0);
+				opacity: 1;
+				transition: transform .8s cubic-bezier(.215,.61,.355,1) 460ms, opacity .8s cubic-bezier(.215,.61,.355,1) 460ms;
+			}
+			&:after {
+				transform: translate3d(-36px,0,0);
+				opacity: 0;
+				transition: transform .6s cubic-bezier(.165,.84,.44,1) 0s, opacity .6s cubic-bezier(.165,.84,.44,1) 0s;
+			}
+		}
+		.line-2 {
+			&:before {
+				transform: translate3d(0,0,0);
+				opacity: 1;
+				transition: transform .8s cubic-bezier(.215,.61,.355,1) 620ms, opacity .8s cubic-bezier(.215,.61,.355,1) 620ms;
+			}
+			&:after {
+				transform: translate3d(-36px,0,0);
+				opacity: 0;
+				transition: transform .6s cubic-bezier(.165,.84,.44,1) 160ms, opacity .6s cubic-bezier(.165,.84,.44,1) 160ms;
+			}
+		}
+		.line-3 {
+			&:before {
+				transform: translate3d(0,0,0);
+				opacity: 1;
+				transition: transform .8s cubic-bezier(.215,.61,.355,1) 780ms, opacity .8s cubic-bezier(.215,.61,.355,1) 780ms;
+			}
+			&:after {
+				transform: translate3d(-36px,0,0);
+				opacity: 0;
+				transition: transform .6s cubic-bezier(.165,.84,.44,1) 320ms, opacity .6s cubic-bezier(.165,.84,.44,1) 320ms;
+			}
+		}
+	}
+}
+
+.icon-plus {
+    @include box-size(12px);
+    display: inline-block;
+    position: relative;
+    &:before, &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+        width: inherit;
+        height: 2px;
+        background-color: currentColor;
+        transform: translate(-50%, -50%);
+        @include transition(.5s, ease, width, transform);
+    }
+    &::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    // button:hover &,
+    // a:hover & {
+    //     &::after {
+    //         width: 0;
+    //     }
+    // }
+	// .is-active & {
+	//     &::after {
+    //         width: 0;
+    //     }
+	// }
+}
+
+/************** Text **************/
+.text-b2 {
+	@include text-b2;
+}
+
+.text-p1 {
+	@include text-p1;
+}
+
+.text-p2 {
+	@include text-p2;
+}
+
+.text-p4 {
+	@include text-p4;
+}
+
+.text-fin-p1 {
+	@include text-fin-p1;
+	@media #{$max-lg} {
+        font-size: 18px;
+    }
+    @media #{$max-sm} {
+        font-size: 16px;
+    }
+}
+
+.text-fin-p2 {
+	@include text-fin-p2;
+}
+
+.text-fin-p3 {
+	@include text-fin-p3;
+}
+
+.highlight-image, .highlight-svg, .parallax-item {
+	transform: translateX( var(--mv-translate-x) )  translateY( var(--mv-translate-y) ) rotate( var(--mv-rotate) );
+}
+
+.overflow-clip-x {
+	overflow-x: clip;
+}
+
+.d-none {
+	display: none;
+}
+
+.box-link {
+	position: absolute;
+	inset: 0;
+	z-index: 99;
+}

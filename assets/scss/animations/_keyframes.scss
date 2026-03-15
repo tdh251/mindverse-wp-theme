@@ -1,0 +1,695 @@
+// _keyframes.scss
+
+/******************* Set Up ********************/
+
+/* Fade In */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Fade In Up */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Right */
+@keyframes fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Left */
+@keyframes fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Up */
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reveal In */
+@keyframes reveal-in {
+  from {
+    clip-path: inset(100% 100% 100% 100%);
+  }
+  to {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+/* Reveal In Circle */
+@keyframes reveal-in-circle {
+  from {
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+/* Reveal In Top */
+@keyframes reveal-in-top {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+/* Reveal In Right */
+@keyframes reveal-in-right {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0%);
+  }
+}
+
+/* Reveal In Bottom */
+@keyframes reveal-in-bottom {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0% 0 0 0);
+  }
+}
+
+/* Reveal In Left */
+@keyframes reveal-in-left {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* Reveal In Hozirontial */
+@keyframes reveal-in-h {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0% 0 0%);
+  }
+}
+
+/* Reveal In Vertical */
+@keyframes reveal-in-v {
+  from {
+    clip-path: inset(50% 0 50% 0);
+  }
+  to {
+    clip-path: inset(0% 0 0% 0);
+  }
+}
+
+/* Zoom In */
+@keyframes zoom-in {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+/* Zoom In Up */
+@keyframes zoom-in-up {
+  from {
+    scale: 0;
+    transform: translateY(50px);
+    transform-origin: center bottom;
+  }
+  to {
+    scale: 1;
+    transform: translateY(0);
+    transform-origin: center bottom;
+  }
+}
+
+/* Zoom In Right */
+@keyframes zoom-in-right {
+  from {
+    scale: 0;
+    transform: translateX(50px);
+    transform-origin: left center;
+  }
+  to {
+    scale: 1;
+    transform: translateX(0);
+    transform-origin: left center;
+  }
+}
+
+/* Zoom In Bottom */
+@keyframes zoom-in-bottom {
+  from {
+    scale: 0;
+    transform: translateY(-50px);
+    transform-origin: center top;
+  }
+  to {
+    scale: 1;
+    transform: translateY(0);
+    transform-origin: center top;
+  }
+}
+
+/* Zoom In Left */
+@keyframes zoom-in-left {
+  from {
+    scale: 0;
+    transform: translateX(-50px);
+    transform-origin: right center;
+  }
+  to {
+    scale: 1;
+    transform: translateX(0);
+    transform-origin: right center;
+  }
+}
+
+/* Zoom In Up Right */
+@keyframes zoom-in-up-right {
+  from {
+    scale: 0;
+    transform: translate(50px, 50px);
+    transform-origin: bottom left;
+  }
+  to {
+    scale: 1;
+    transform: translate(0, 0);
+    transform-origin: bottom left;
+  }
+}
+
+/* Zoom In Up Left */
+@keyframes zoom-in-up-left {
+  from {
+    scale: 0;
+    transform: translate(-50px, 50px);
+    transform-origin: bottom right;
+  }
+  to {
+    scale: 1;
+    transform: translate(0, 0);
+    transform-origin: bottom right;
+  }
+}
+
+/* Zoom In Bottom Right */
+@keyframes zoom-in-bottom-right {
+  from {
+    scale: 0;
+    transform: translate(50px, -50px);
+    transform-origin: top left;
+  }
+  to {
+    scale: 1;
+    transform: translate(0, 0);
+    transform-origin: top left;
+  }
+}
+
+/* Zoom In Bottom Left */
+@keyframes zoom-in-bottom-left {
+  from {
+    scale: 0;
+    transform: translate(-50px, -50px);
+    transform-origin: top right;
+  }
+  to {
+    scale: 1;
+    transform: translate(0, 0);
+    transform-origin: top right;
+  }
+}
+
+@keyframes zoom-in-bounce {
+  0% {
+    opacity: 0;
+    transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+}
+
+// Marquee
+@keyframes marquee {
+    from {
+        transform: translateX(0) translateY(0);
+    }to{
+        transform: translateX( var(--mv-translate-x, 0) ) translateY( var(--mv-translate-y, 0) );
+    }
+}
+
+
+/******************* Loop ********************/
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaleMove {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  25% {
+    transform: scale(1.15) translate(5px, -5px);
+  }
+  50% {
+    transform: scale(1.03) translate(-5px, 5px);
+  }
+  75% {
+    transform: scale(1.1) translate(3px, -3px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes pointerWiggle  {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateX(-2px) translateY(0px) rotate(-10deg);
+    }
+    66% {
+        transform: translateX(2px) translateY(0) rotate(5deg);
+    }
+}
+
+@keyframes linkUnderlineLtr {
+    0% {
+        width: 0;
+    }
+    50% {
+      left: 0;
+      right: auto;
+      width: 0;
+    }
+    100% {
+        width: 100%;
+        // transform-origin: left;
+    }
+}
+
+@keyframes pulse-shake {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.2); } 
+  15% { transform: scale(1.2) rotate(3deg); } 
+  20% { transform: scale(1.2) rotate(-3deg); } 
+  25% { transform: scale(1.2) rotate(3deg); } 
+  30% { transform: scale(1.2) rotate(-3deg); } 
+  35% { transform: scale(1.2) rotate(3deg); } 
+  40% { transform: scale(1); } 
+  100% { transform: scale(1); } 
+}
+[data-loop-animation="pulse-shake"] {
+  animation: pulse-shake 10s ease-in-out infinite;
+  -webkit-animation: pulse-shake 10s ease-in-out infinite;
+}
+
+@keyframes right-hand-wave {
+  0%, 100% {
+    transform: rotate(0deg);      
+  }
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  45% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+  90% {
+    transform: rotate(-15deg);
+  }
+}
+@keyframes eye {
+  0%, 100% {
+    transform: translateX(0px);      
+  }
+  25% {
+    transform: translateX(1.5px);
+  }
+  50% {
+    transform: translateX(-1.5px);
+  }
+  75% {
+    transform: translateX(1.5px);
+  }
+}
+@keyframes left-hand-wave {
+  0%, 100% {
+    transform: rotate(0deg);      
+  }
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  80% {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes blinking {
+  0%, 40%, 80%, 100% {
+    opacity: 1;
+  }
+  20%, 60% {
+    opacity: 0;
+  }
+}
+
+[data-loop-animation="blinking"] {
+  animation: blinking 3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  from {
+    --mv-angle: 0deg;
+  }
+  to {
+    --mv-angle: 360deg;
+  }
+}
+@property --mv-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+@keyframes floating {
+	0%, 100% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-30px);
+	}
+}
+[data-loop-animation="floating"] {
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating-2 {
+  0% {
+    transform: rotate(0deg) translate3d(15px, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate3d(15px, 0, 0) rotate(-360deg);
+  }
+}
+[data-loop-animation="floating2"] {
+  animation: floating-2 5s ease-in-out infinite;
+}
+
+@keyframes floating-3 {
+  0%, 100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  33% {
+    transform: rotate(-15deg) translate3d(0, 15px, 0);
+  }
+  66% {
+    transform: rotate(15deg) translate3d(0, -15px, 0);
+  }
+}
+[data-loop-animation="floating3"] {
+  animation: floating-3 5s ease-in-out infinite;
+}
+
+@keyframes floating4 {
+	0%, 100% {
+		transform: translateX(0px);
+	}
+	50% {
+		transform: translateX(-30px);
+	}
+}
+[data-loop-animation="floating4"] {
+  animation: floating4 5s ease-in-out infinite;
+}
+
+
+@keyframes bellRing{
+  0%   { transform: rotate(0); }
+  5%   { transform: rotate(25deg); }
+  10%  { transform: rotate(-25deg); }
+  15%  { transform: rotate(30deg); }
+  20%  { transform: rotate(-30deg); }
+  25%  { transform: rotate(22deg); }
+  30%  { transform: rotate(-22deg); }
+  35%  { transform: rotate(15deg); }
+  40%  { transform: rotate(-15deg); }
+  45%  { transform: rotate(8deg); }
+  50%  { transform: rotate(-8deg); }
+  55%  { transform: rotate(4deg); }
+  60%  { transform: rotate(-4deg); }
+  100% { transform: rotate(0); }
+}
+[data-loop-animation="bellRing"] {
+  animation: bellRing 5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes spin{
+  from {
+    transform: rotate(0deg);
+  }to {
+    transform: rotate(360deg)
+  }
+}
+[data-loop-animation="spin"] {
+  animation: spin 10s linear infinite;
+  transform-origin: center center;
+}
+
+
+/**** HOVER ****/
+@keyframes buttonIconSlideRight {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    45% {
+        transform: translate(100%, 0);
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        transform: translate(-100%, 0);
+    }
+    60% {
+        opacity: 1;
+    }
+}
+/* Button Icon Slide Down */
+@keyframes buttonIconSlideDown {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(0, 100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  55% {
+    transform: translate(0, -100%);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+/* Button Icon Slide Up */
+@keyframes buttonIconSlideUp {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(0, -100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  55% {
+    transform: translate(0, 100%);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+/* Button Icon Slide Left */
+@keyframes buttonIconSlideLeft {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-100%, 0);
+  }
+  50% {
+    opacity: 0;
+  }
+  55% {
+    transform: translate(100%, 0);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseFade {
+  0%, 100% {
+    opacity: 1; 
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+/* Định nghĩa chuyển động */
+@keyframes fillProgress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%; 
+    }
+}
+
+// .fillProgress
+
+@keyframes jumping {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+[data-loop-animation="jumping"] {
+  animation: jumping 4s ease-in-out infinite;
+  -webkit-animation: jumping 4s ease-in-out infinite;
+}
+
+
+@keyframes zoomAndRest {
+  /* 0% đến 25% là khoảng 1 giây đầu: Thực hiện Zoom */
+  0% {
+    transform: scale(0);
+    transform-origin: bottom right;
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1);
+    transform-origin: bottom right;
+    opacity: 1;
+  }
+  /* Từ 25% đến 100% là 3 giây sau: Đứng yên nghỉ */
+  100% {
+    transform: scale(1);
+    transform-origin: bottom right;
+    opacity: 1;
+  }
+}
+
+[data-loop-animation="zoomAndRest"] {
+  animation: zoomAndRest 4s ease-in-out infinite;
+  -webkit-animation: zoomAndRest 4s ease-in-out infinite;
+}
+
+
+@keyframes bongBenhStop {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    12.5% {
+        transform: translateY(-3px); 
+    }
+    25% {
+        transform: translateY(0);   
+    }
+    37.5% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(0);  
+    }
+}
+
+[data-loop-animation="bongBenhStop"] {
+  animation: bongBenhStop 4s ease-in-out infinite;
+  -webkit-animation: bongBenhStop 4s ease-in-out infinite;
+}

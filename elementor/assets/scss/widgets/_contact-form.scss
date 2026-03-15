@@ -1,0 +1,170 @@
+@use '../../../../assets/scss/core' as *;
+
+.wpcf7 {
+    form.wpcf7-form {
+        line-height: 0;
+        @include d-flex;
+        flex-wrap: wrap;
+        .wpcf7-not-valid-tip {
+            font-size: 12px;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+        .wpcf7-response-output {
+            margin: 0;
+            color: #FFF;
+            border-width: 1px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .wpcf7-form-control-wrap {
+            width: 100%;
+            display: block;
+        }
+        .wpcf7-form-control {
+            width: 100%;
+        }
+        label {
+            display: block;
+            line-height: 1.5;
+        }
+        &.is-loading {
+            input, textarea {
+                pointer-events: none;
+                filter: blur(1px);
+            }
+        }
+        &.field-style-1 {
+            input, textarea, select, .nice-select {
+                color: #FFF;
+                padding-inline: 27px 50px;
+                height: 43px;
+                border-radius: 100px;
+                background-color: rgba($color: #FFF, $alpha: .13);
+                border: thin solid rgba($color: #FFF, $alpha: .17);
+                font-family: var(--mv-third-font);
+            }
+        }
+        &.field-style-2 {
+            input, textarea, select, .nice-select {
+                @include text-p1;
+                color: #9CA3AF;
+                padding-inline: 33px 125px;
+                height: 60px;
+                border-radius: 100px;
+                background-color: rgba($color: #FFF, $alpha: .07);
+            }
+        }
+        &.field-style-3 {
+            input, textarea, select, .nice-select {
+                color: rgba($color: #FBFAF9, $alpha: .7);
+                font-family: 'Onest';
+                font-size: 15px;
+                font-weight: 400;
+                line-height: normal;
+                height: 54px;
+                border-radius: 10px;
+                background-color: rgba($color: #FFF, $alpha: .12);
+                padding-inline: 25px 155px;
+            }
+        }
+        &.field-style-4 {
+            input, textarea, select, .nice-select {
+                padding: 0 0 2px 0px;
+                color: #000;
+                font-family: 'Inter';
+                font-size: 16px;
+                line-height: 1;
+                letter-spacing: 1.2px;
+                text-transform: uppercase;
+                height: 53px;
+                border-bottom: thin solid rgba($color: #6d6d6d, $alpha: .3);
+            }
+            textarea {
+                padding-block: 12px 13px;
+            }
+        }
+        &.field-style-5 {
+            --mv-spacing-inline: 20px;
+            --mv-spacing-block: 22px;
+            label {
+                @include text-p4;
+                color: rgba($color: #FFF, $alpha: .8);
+                margin-bottom: 11px;
+                display: block;
+            }
+            input, textarea, select, .nice-select {
+                border-radius: 100px;
+                border: thin solid rgba($color: #FFF, $alpha: .1);
+                background-color: rgba($color: #FFFFFF, $alpha: 0.05);
+                height: 42px;
+                padding-inline: 15px;
+                @include text-p4;
+                color: rgba($color: #FFF, $alpha: .4);
+            }
+            textarea {
+                padding: 11px 15px;
+                height: 140px;
+                border-radius: 10px;
+            }
+        }
+        &.field-style-6 {
+            --mv-spacing-inline: 16px;
+            --mv-spacing-block: 24px;
+            label {
+                display: block;
+                @include text-fin-p3;
+                margin-bottom: 5px;
+                color: #060F16;
+            }
+            input, textarea, select, .nice-select {
+                @include text-fin-p3;
+                border-radius: 12px;
+                border: 1px solid #D5D7DA;
+                background-color: #FFF;
+                padding: 15px 17px;
+                color: #A4A7AE;
+                border-radius: 12px;
+                height: 50px;
+            }
+            textarea {
+                padding: 14px 17px;
+                height: 144px;
+            }
+        }
+        .upload-file {
+            @include d-flex(16px, center);
+            row-gap: 10px;
+            flex-wrap: wrap;
+            &:after {
+                content: attr(data-note);
+                display: inline-block;
+                @include text-fin-p3;
+                color: #626262;
+            }
+            .wpcf7-form-control-wrap {
+                width: fit-content;
+            }
+            input {
+                width: fit-content;
+            }
+        }
+    }
+    .field-upload-control {
+        position: relative;
+        input[type="file"] {
+            display: none;
+        }
+        .button-upload {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            width: 193px;
+            height: 50px;
+            background-color: #EDEDED;
+            border: thin solid #D5D7DA;
+            border-radius: 8px;
+            @include text-fin-p3;
+        }
+    }
+}

@@ -1,0 +1,104 @@
+@use '../core.scss' as *;
+
+.single.single-post {
+    &.sidebar-position-none {
+        #main {
+            .inner {
+                max-width: 860px;
+            }
+        }
+    }
+}
+
+.single.single-career {
+    #main {
+        padding-inline: 15px;
+        .inner {
+            padding-block: 163px;
+            max-width: 1300px;
+            margin: 0 auto;
+            @media #{$max-lg} {
+                padding-block: 105px;
+            }
+            @media #{$max-sm} {
+                padding-block: 90px;
+            }
+        }
+    }
+}
+
+.single.single-post, .blog, body.archive, body.search {
+    &.sidebar-position-left {
+        #main {
+            .inner {
+                flex-direction: row-reverse;
+                @media #{$max-md} {
+                    flex-wrap: wrap-reverse;
+                }
+            }
+        }
+    }
+    &.sidebar-position-none {
+        #main {
+            .inner {
+                .content-area {
+                    max-width: 100%;
+                    flex: 0 1 100%;
+                }
+            }
+        }
+    }
+    #main {
+        padding-inline: 15px;
+        .inner {
+            @include d-flex(30px, null, space-between);
+            max-width: 1335px;
+            margin: 0 auto;
+            padding-block: 129px 120px;
+            row-gap: 105px;
+            .content-area {
+                max-width: 100%;
+                flex: 0 1 859px;
+            }
+            .sidebar-area {
+                flex: 0 1 392px;
+                max-width: 100%;
+                min-width: 300px;
+            
+            }
+            @media #{$max-lg} {
+                padding-block: 105px !important;
+            }
+            @media #{$max-md} {
+                flex-wrap: wrap;
+                .content-area, .sidebar-area {
+                    flex: 0 1 100%;
+                }
+            }
+            @media #{$max-sm} {
+                row-gap: 90px;
+                padding-block: 90px !important;
+            }
+        }
+    }
+} 
+
+.blog {
+    #main {
+        .inner {
+            .content-area {
+                flex: 0 1 901px;
+            }
+        }
+    }
+}
+
+#main {
+    overflow-x: clip;
+    .main-inner {
+    > .elementor {
+        width: 100%;
+    }
+    }
+
+}

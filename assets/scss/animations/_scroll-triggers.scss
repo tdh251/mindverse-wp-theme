@@ -1,0 +1,80 @@
+@use 'keyframes' as *;
+
+.wow {
+    visibility: hidden;
+    &.animated {
+        visibility: visible;
+    }
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    /* Fade variants */
+    &.fadeIn          { animation-name: fade-in; }
+    &.fadeInUp        { animation-name: fade-in-up; }
+    &.fadeInRight     { animation-name: fade-in-right; }
+    &.fadeInLeft      { animation-name: fade-in-left; }
+    &.fadeInDown      { animation-name: fade-in-down; }
+    
+    /* Reveal variants */
+    &.revealIn         { animation-name: reveal-in; }
+    &.revealInCircle  { animation-name: reveal-in-circle; }
+    &.revealInTop     { animation-name: reveal-in-top; }
+    &.revealInRight   { animation-name: reveal-in-right; }
+    &.revealInBottom  { animation-name: reveal-in-bottom; }
+    &.revealInLeft    { animation-name: reveal-in-left; }
+    &.revealInHorizontal { animation-name: reveal-in-h; }
+    &.revealInVertical { animation-name: reveal-in-v; }
+
+    /* Zoom In variants */
+    &.zoomIn {
+        animation-name: zoom-in;
+    }
+    &.zoomInUp {
+        animation-name: zoom-in-up;
+    }
+    &.zoomInRight {
+        animation-name: zoom-in-right;
+    }
+    &.zoomInBottom {
+        animation-name: zoom-in-bottom;
+    }
+    &.zoomInLeft {
+        animation-name: zoom-in-left;
+    }
+    &.zoomInUpRight {
+        animation-name: zoom-in-up-right;
+    }
+    &.zoomInUpLeft {
+        animation-name: zoom-in-up-left;
+    }
+    &.zoomInBottomRight {
+        animation-name: zoom-in-bottom-right;
+    }
+    &.zoomInBottomLeft {
+        animation-name: zoom-in-bottom-left;
+    }
+    &.zoomInBounce {
+        animation-duration: 1.5s;
+        animation-name: zoom-in-bounce;
+    }
+    &.fillProgress {
+        animation-duration: 2s;
+        -webkit-animation-duration: 2s;
+        animation-name: fillProgress;
+        animation-timing-function: linear;
+        -webkit-animation-timing-function: linear;
+    }
+}
+
+[data-scrolling-effects="moveTo"] {
+    // opacity: 0;
+    &.is-clone {
+        opacity: 1;
+        // transition: none !important;
+    }
+}

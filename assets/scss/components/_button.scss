@@ -1,0 +1,415 @@
+@use '../core.scss' as *;
+
+button, .button {
+    position: relative;
+    @include d-inline-flex(var(--mv-gap, 15px), center, center);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    @include transition;
+    .button-text, .button-icon {
+        @include d-inline-flex(null, center, center);
+        position: relative;
+        z-index: 9;
+    }
+    &.button-primary {
+        background-color: var(--mv-primary-color);
+        padding-inline: 31.5px;
+        height: 54px;
+        @include text-b2;
+        text-transform: uppercase;
+        border-radius: 1584px;
+        box-shadow: 0 4px 1px 0 rgba($color: #FFF, $alpha: .14) inset;
+        overflow: hidden;
+    }
+    &.button-secondary {
+        background: linear-gradient(180deg, #1C2F41 0%, #060F16 100%);
+        font-family: 'Inter';
+        font-size: 15px;
+        font-weight: 500;
+        color: #FFF;
+        padding-inline: 36px;
+        border-radius: 15px;
+        height: 52px;
+    }
+    &.button-hamburger {
+        background-color: transparent;
+        color: var(--mv-primary-color);
+    }
+    &.button-cta {
+        height: 40px;
+        border-radius: 8px;
+        gap: 8px;
+        flex-direction: row-reverse;
+        padding-inline: 16px;
+        @include text-b2;
+        color: #E5FF5E;
+        border-radius: 8px;
+        background: linear-gradient(180deg, #174E49 0%, #052029 100%);
+        .button-icon {
+            animation: pointerWiggle 1s ease-in-out infinite;
+            transform-origin: bottom left;
+            animation-play-state: paused;
+        }
+        &:hover {
+            .button-icon { 
+                animation-play-state: running;
+            }
+        }
+    }
+    &.button-link-underline {
+        display: inline-flex;
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            @include transition(.3s, ease, transform);
+        }
+        &:hover {
+            &::before {
+                animation: linkUnderlineLtr  .3s linear forwards;
+            }
+        }
+    }
+    &.button-close {
+        background-color: #000;
+        color: #FFF;
+        @include round-box(36px);
+        &:hover {
+            
+        }
+    }
+    &.button-style-1 {
+        --mv-gap: 8px;
+        height: 44px;
+        background-color: #2563EB;
+        color: #FFF;
+        padding-inline: 28px;
+        border-radius: 100px;
+        font-family: 'Geist';
+        font-size: 14px;
+        font-weight: 500;
+    }
+    &.button-style-2 {
+        --mv-gap: 10px;
+        color: #FFF;
+        height: 56px;
+        padding-inline: 24px 16px;
+        border-radius: 200px;
+        @include text-b3;
+        background: radial-gradient(363.36% 93.61% at 10% 0%, #01E5E5 0%, #008787 100%);
+        .button-icon {
+            padding: 10px 18px;
+            border-radius: inherit;
+            background-color: rgba($color: #FFF, $alpha: .31);
+        }
+    }
+    &.button-gradient-3-color {
+        --mv-angle: 270deg;
+        --gradient-color: #434AFF;
+        --gradient-color-2: #47B2FF;
+        --gradient-color-3: #39EDAC;
+        background: linear-gradient(var(--mv-angle), var(--gradient-color) 0%, var(--gradient-color-2) 50%, var(--gradient-color-3) 100%);
+    }
+    &.button-highlight, &.button-highlight-2 {
+        height: 33px;
+        gap: 5px;
+        border-radius: 200px;
+        padding-inline: 19px;
+        @include text-fin-p3;
+        color: var(--mv-heading-color);
+        border-width: 1px;
+        .button-text--highlight {
+            color: #2563EB;
+        }
+    }
+    &.button-highlight {
+        --mv-angle: 90deg;
+        --mv-background-color: #FFF;
+        --mv-background-color-b: #FFF;
+        --gradient-color: #C96CFF;
+        --gradient-color-2: #5F21F2;
+        --gradient-color-3: #2C8FFF;
+    }
+    &.box-border-gradient.six-colors {
+        height: 56px;
+        padding-inline: 32px;
+        border-radius: 100px;
+        --mv-background-color: #2B2B2B;
+        --mv-background-color-b: #2B2B2B;
+        color: #FFF;
+    }
+}
+
+.button-play-video {
+    &[data-style="primary"] {
+        @include round-box(150px);
+        color: #FFF;
+        background-color: rgba($color: #FFF, $alpha: .15);
+        border: thin solid rgba($color: #FFF, $alpha: .34);
+        padding: 11px;
+        svg {
+            z-index: 9;
+        }
+        .button-icon {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background-color: rgba($color: #FFF, $alpha: .17);
+            backdrop-filter: blur(20px);
+            @include transition(.3s, ease, inset);
+        }
+        &:hover {
+            border-color: transparent;
+            .button-icon {
+                inset: 0;
+            }
+        }
+        @media #{$max-sm} {
+            --mv-box-size: 125px;
+        }
+    }
+    &[data-style="secondary"] {
+        @include round-box(150px);
+        color: #FFF;
+        background-color: rgba($color: #FFF, $alpha: .15);
+        border: thin solid rgba($color: #FFF, $alpha: .34);
+        svg {
+            z-index: 9;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 11px;
+            border-radius: inherit;
+            color: #FFF;
+            background-color: rgba($color: #FFF, $alpha: .17);
+            backdrop-filter: blur(20px);
+        }
+    }
+    &[data-style="third"] {
+        @include round-box(136px);
+        @include absolute-center;
+        background-color: #A8FFBB;
+        color: #060F16;
+        @media  #{$max-sm} {
+            --mv-box-size: 115px;
+        }
+        @media  #{$max-xs} {
+            --mv-box-size: 100px;
+        }
+    }
+}
+
+/************************* Button Hover *************************/
+.button {
+    --mv-background-color-hover: #000;
+    overflow: hidden;
+    &[data-hover*="fill"] {
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--mv-background-color-hover);
+            pointer-events: none;
+            opacity: 0;
+            @include transition(.3s, ease, clip-path, inset, width, height, opacity);
+        }
+        --mv-transition-duration: .5s;
+        &::before {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &[data-hover="fillFromLeft"] {
+        &::before {
+            right: 0;
+            left: auto;
+            width: 0;
+        }
+        &:hover::before {
+            right: auto;
+            left: 0;
+            width: 100%;
+        }
+    }
+    &[data-hover="fillFromRight"] {
+        &::before {
+            left: 0;
+            right: auto;
+            width: 0;
+        }
+        &:hover::before {
+            left: auto;
+            right: 0;
+            width: 100%;
+        }
+    }
+    &[data-hover="fillFromTop"] {
+        &::before {
+            bottom: 0;
+            top: auto;
+            height: 0;
+        }
+        &:hover::before {
+            top: 0;
+            bottom: auto;
+            height: 100%;
+        }
+    }
+    &[data-hover="fillFromBottom"] {
+        &::before {
+            top: 0;
+            bottom: auto;
+            height: 0;
+        }
+        &:hover::before {
+            top: auto;
+            bottom: 0;
+            height: 100%;
+        }
+    }
+    &[data-hover="fillCircle"] {
+        &::before {
+            clip-path: circle(0% at 50% 50%);
+        }
+        &:hover::before {
+            clip-path: circle(75% at 50% 50%);
+        }
+    }
+    &[data-hover="fillHorizontal"] {
+        &::before {
+            clip-path: inset(0 100% 0 100%);
+        }
+        &:hover::before {
+            clip-path: inset(0 0 0 0);
+        }
+        &:not(:hover)::before {
+            clip-path: inset(0 100% 0 100%);
+        }
+    }
+    &[data-hover="fillVertical"] {
+        &::before {
+            clip-path: inset(100% 0 100% 0);
+        }
+        &:hover::before {
+            clip-path: inset(0 0 0 0);
+        }
+        &:not(:hover)::before {
+            clip-path: inset(100% 0 100% 0);
+        }
+    }
+    &[data-hover="iconSlideRight"] {
+        .button-icon {
+            overflow: hidden;
+        }
+        &:hover {
+            i, svg {
+                animation: buttonIconSlideRight .35s ease forwards;
+            }
+        }
+    }
+    &[data-hover="iconSlideUp"] {
+        .button-icon {
+            overflow: hidden;
+        }
+        &:hover {
+            i, svg {
+                animation: buttonIconSlideUp .35s ease forwards;
+            }
+        }
+    }
+    &[data-hover="iconSlideDown"] {
+        .button-icon {
+            overflow: hidden;
+        }
+        &:hover {
+            i, svg {
+                animation: buttonIconSlideDown .35s ease forwards;
+            }
+        }
+    }
+    &[data-hover="iconSlideLeft"] {
+        .button-icon {
+            overflow: hidden;
+        }
+        &:hover {
+            i, svg {
+                animation: buttonIconSlideLeft .35s ease forwards;
+            }
+        }
+    }
+    &[data-hover="iconReversePosition"] {
+        .button-text, .button-icon {
+            @include transition(.3s, ease);
+        }
+        .button-icon.clone {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            transform-origin: left center;
+        }
+        &:hover {
+            .button-icon {
+                scale: 0;
+                &.clone {
+                    scale: 1;
+                    transform: translateY(-50%) scale(1);
+                }
+            }
+        }
+    }
+}
+
+.link {
+    display: inline-flex;
+    width: fit-content;
+    text-decoration: none;
+    color: #000;
+
+    &.link-underline {
+        position: relative;
+        padding-bottom: 2px; 
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(1);
+            transform-origin: right;
+            @include transition(.3s, ease, transform);
+        }
+        &:hover::before {
+            transform: scaleX(0);
+            animation: underlineSlideInFromLeft 0.3s forwards 0.3s; 
+        }
+    }
+}
+
+@keyframes underlineSlideInFromLeft {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.button[data-type="submit"], .post-filter-button {
+    &.is-loading {
+        pointer-events: none;
+        filter: blur(1px);
+        animation: pulseFade 2.5s ease-in-out infinite;
+    }
+}

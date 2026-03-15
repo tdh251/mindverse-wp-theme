@@ -1,0 +1,35 @@
+@use '../core.scss' as *;
+
+.drawer {
+    position: fixed;
+    height: 100vh;
+    min-width: 300px;
+    left: 0;
+    top: 0;
+    transform: translate3d(-100%, 0, 0);
+    pointer-events: none;
+    z-index: 99999;
+    overflow: auto;
+    @include transition(.5s, ease, transform, opacity);
+    will-change: transform, opacity;
+    &[data-drawer="top"] {
+        transform: translate3d(0, -100%, 0);
+    }
+    &[data-drawer="right"] {
+        left: auto;
+        right: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    &[data-drawer="bottom"] {
+        top: auto;
+        bottom: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    &[data-drawer="left"] {
+        
+    }
+    &.is-active {
+        pointer-events: auto;
+        transform: translate3d(0, 0, 0);
+    }
+}

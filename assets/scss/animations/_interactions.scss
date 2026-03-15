@@ -1,0 +1,18 @@
+@use '../core.scss' as *;
+
+/* SETUP - use CSS var --mv-animation-name for hover animations */
+/* clear default then set specific mappings */
+// [data-hover="fade-in"]               { --mv-animation-name: fade-in; }
+// [data-hover="fade-in-up"]            { --mv-animation-name: fade-in-up; }
+// [data-hover="fade-in-right"]         { --mv-animation-name: fade-in-right; }
+// [data-hover="fade-in-left"]          { --mv-animation-name: fade-in-left; }
+// [data-hover="fade-in-down"]          { --mv-animation-name: fade-in-down; }
+
+// [data-hover="reveal-in"]             { --mv-animation-name: reveal-in; }
+// [data-hover="fillCircle"]      { --mv-animation-name: fillCircle; }
+// [data-hover="reveal-in-top"]         { --mv-animation-name: reveal-in-top; }
+// [data-hover="reveal-in-right"]       { --mv-animation-name: reveal-in-right; }
+// [data-hover="reveal-in-bottom"]      { --mv-animation-name: reveal-in-bottom; }
+// [data-hover="reveal-in-left"]        { --mv-animation-name: reveal-in-left; }
+// [data-hover="fillHorizontal"]           { --mv-animation-name: fillHorizontal; }
+// [data-hover="fillVertical"]           { --mv-animation-name: fillVertical; }

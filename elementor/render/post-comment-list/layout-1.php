@@ -1,0 +1,2 @@
+<?php
+comments_template();

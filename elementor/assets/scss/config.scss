@@ -1,0 +1,146 @@
+@use '../../../assets/scss/core' as *;
+
+.single {
+	.e-con.e-parent, .elementor-element[data-nesting-level="0"] {
+		--container-default-padding-right: 0px;
+		--container-default-padding-left: 0px;
+		--column-gap: 0px;
+	}
+}
+
+.e-con.e-parent {
+    --container-default-padding-right: 15px;
+    --container-default-padding-left: 15px;
+    --column-gap: 30px;
+}
+
+.elementor-element {
+	background: center center / cover no-repeat;
+}
+
+.elementor-shape {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	&.elementor-shape-top {
+		top: 0;
+	}
+	&.elementor-shape-bottom {
+		bottom: 0;
+		transform: scaleY(-1);
+	}
+}
+
+.elementor-editor-active #main .elementor-section-wrap.ui-sortable {
+	margin: 0;
+}
+
+.mindverse-no-found {
+	font-size: 16px;
+	background-color: #FFF;
+	color: #000;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+.elementor-widget-mindverse_svg_effects {
+	display: flex;
+}
+
+.elementor-widget-mindverse_image, 
+.elementor-widget-mindverse_svg_effects, 
+.elementor-widget-mindverse_icon, 
+.elementor-widget-mindverse_site_logo, 
+.elementor-widget-mindverse_contact_form,
+.elementor-widget-mindverse_post_featured_image {
+	line-height: 0;
+}
+
+.elementor-widget-mindverse_icon {
+	i {
+		line-height: 1;
+	}
+}
+
+.mindverse-e-background, .mindverse-e-background-overlay {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background: center center / cover no-repeat;
+	will-change: transform;
+}
+
+.mindverse-e-shape {
+	width: 100%;
+	height: 350px;
+	background-color: #000;
+}
+
+.parallax-item {
+	position: absolute;
+}
+
+.elementor-widget-mindverse_shape {
+	pointer-events: none;
+}
+
+.elementor {
+	.site-logo {
+		display: inline-block;
+		img {
+			height: 50px;
+		}
+	}
+}
+
+.mindverse-e-toggle-switch-content {
+    overflow: hidden;
+    height: var(--mv-height, 0) !important;
+	min-height: var(--mv-height, 0) !important;
+    opacity: 0;
+    transition: height .35s ease, opacity .25s ease !important;
+
+    &.is-active {
+        opacity: 1;
+    }
+}
+
+[data-mousemove-effect="parallax"] {
+	transition: none !important;
+}
+
+// Responsive Breakpoint
+@media #{$max-xs} {
+	.elementor .elementor-hidden-mobile, .pxl-hidden-xs {
+		display: none !important;
+	}
+}
+@media #{$mm-sm} {
+	.elementor .elementor-hidden-mobile_extra, .pxl-hidden-sm {
+		display: none !important;
+	}
+}
+@media #{$mm-md} {
+	.elementor .elementor-hidden-tablet, .pxl-hidden-md {
+		display: none !important;
+	}
+}
+@media #{$mm-lg} {
+	.elementor .elementor-hidden-tablet_extra, .pxl-hidden-lg {
+		display: none !important;
+	}
+}
+@media #{$mm-xl} {
+	.elementor .elementor-hidden-laptop, .pxl-hidden-xl {
+		display: none !important;
+	}
+}
+
+.elementor-widget-mindverse_divider {
+	display: flex;
+}
+
+.elementor-widget-mindverse_navigation_carousel {
+	pointer-events: none;
+}

@@ -1,0 +1,106 @@
+
+
+@use 'core.scss' as *;
+
+.home-1, .home-2, .home-3 {
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 500;
+    }
+    h1 {
+        font-size: 80px;
+        line-height: 0.875;
+        @media #{$max-xl} {
+            font-size: 72px;
+        }
+        @media #{$max-lg} {
+            font-size: 64px;
+        }
+        @media #{$max-md} {
+            font-size: 54px;
+        }
+        @media #{$max-sm} {
+            font-size: 46px;
+        }
+        @media #{$max-xs} {
+            font-size: 38px;
+        }
+    }
+    h2 {
+        font-size: 60px;
+        line-height: 1.16667;
+        letter-spacing: -1.6px;
+        @media #{$max-xl} {
+            font-size: 54px;
+        }
+        @media #{$max-lg} {
+            font-size: 48px;
+            letter-spacing: -1.5px;
+        }
+        @media #{$max-md} {
+            font-size: 42px;
+        }
+        @media #{$max-sm} {
+            font-size: 36px;
+            letter-spacing: -1px;
+        }
+        @media #{$max-xs} {
+            font-size: 30px;
+        }
+    }
+
+    h3 {
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -2px;
+        @media #{$max-xl} {
+            font-size: 38px;
+        }
+        @media #{$max-lg} {
+            font-size: 34px;
+            letter-spacing: -1.5px;
+        }
+        @media #{$max-md} {
+            font-size: 32px;
+        }
+        @media #{$max-sm} {
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+        @media #{$max-xs} {
+            font-size: 26px;
+        }
+    }
+
+    h4 {
+        font-size: 32px;
+        line-height: 1.2;
+        letter-spacing: -2px;
+        @media #{$max-lg} {
+            font-size: 30px;
+            letter-spacing: -1.5px;
+        }
+        @media #{$max-md} {
+            font-size: 28px;
+        }
+        @media #{$max-sm} {
+            font-size: 26px;
+            letter-spacing: -1px;
+        }
+        @media #{$max-xs} {
+            font-size: 24px;
+        }
+    }
+
+    h5 {
+        font-size: 18px;
+        line-height: 1.2;
+        letter-spacing: -0.36px;
+    }
+
+    h6 {
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 1.4px;
+    }
+}
+

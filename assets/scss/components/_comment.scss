@@ -1,0 +1,206 @@
+@use '../core.scss' as *;
+
+.comment-area {
+    a {
+        color: inherit;
+    }
+    .comment-title, #reply-title {
+        margin-bottom: 42px;
+        color:#060F16;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.73333;
+        letter-spacing: -1.2px;
+        padding-bottom: 9px;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 54px;
+            background-color: #A8FFBB;
+            display: inline-block;
+        }
+    }
+    #reply-title {
+        margin-bottom: 26px;
+    }
+    .comment-list {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+            > .children {
+                padding-left: 99px;
+            }
+        }
+        @media #{$max-lg} {
+            gap: 50px;
+            li {
+                gap: 50px;
+                > .children {
+                    padding-left: 60px;
+                }
+            }
+        }
+        @media #{$max-sm} {
+            gap: 30px;
+            li {
+                gap: 30px;
+                > .children {
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+    .comment-box {
+        .comment-inner {
+            display: flex;
+            gap: 15px 30px;
+            @media #{$max-xs} {
+                flex-direction: column;
+            }
+        }
+    }
+    .comment-image {
+        img {
+            @include round-box(99px);
+            @media #{$max-lg} {
+                --mv-box-size: 85px;
+            }
+            @media #{$max-sm} {
+                --mv-box-size: 65px;
+            }
+        }
+    }
+    .comment-header {
+        @include d-flex(null, center);
+        gap: 15px 35px;
+        margin-bottom: 13px;
+    }
+    .comment-content {
+        padding-top: 10px;
+        @media #{$max-xs} {
+            padding-top: 0px;
+        }
+    }
+    .comment-text {
+        max-width: 550px;
+        color: #626262;
+        font-size: 14px;
+        line-height: 1.42857;
+        letter-spacing: -0.28px;
+        @media #{$max-md} {
+            max-width: 100%;
+        }
+    }
+    .comment-user {
+        color: #060F16;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1;
+    }
+    .comment-date, .comment-reply  {
+        color: #060F16;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.33333;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+    }
+    .comment-reply {
+        color: #626262;
+        margin-top: 26px;
+    }
+    .comment-wrapper {
+        margin-bottom: 92px;
+    }
+
+    .comment-note, .logged-in-as {
+        color: #626262;
+        @include text-fin-p2;
+        margin-bottom: 20px;
+    }
+
+    .comment-respond {
+        .grid {
+            --mv-spacing-block: 28px;
+            --mv-spacing-inline: 34px;
+            .grid-item-full {
+                order: 1;
+                line-height: 0;
+            }
+        }
+        input:not(#wp-comment-cookies-consent), textarea {
+            width: 100%;
+            height: 58px;
+            padding-inline: 28px 15px;
+            border: thin solid #D5D7DA;
+            background-color: #FFF;
+            border-radius: 15px;
+            @include text-fin-p2;
+            color: #626262;
+        }
+        textarea {
+            border-radius: 20px;
+            padding-block: 17px 15px;
+            height: 138px;
+            margin-bottom: 28px;
+        }
+        .comment-form {
+            max-width: 800px;
+            @media #{$max-md} {
+                max-width: 100%;
+            }
+        }
+        .comment-form-cookies-consent {
+            display: flex;
+            gap: 5px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            margin-bottom: 28px;
+        }
+        #submit {
+            border-radius: 15px;
+            background: linear-gradient(180deg, #1C2F41 0%, #060F16 100%);
+            height: 52px;
+            @include text-fin-button;
+            color: #FFF;
+            padding-inline: 30px;
+        }
+        #cancel-comment-reply-link {
+            font-size: 0;
+            position: relative;
+            @include round-box(26px);
+            background-color: #FFF;
+            position: absolute;
+            right: 0;
+            top: 12px;
+            &::after, &::before {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background-color: #060F16;
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+                @include transition(transform, .3s, ease);
+            }
+            &::before {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+            &:hover {
+                &::after, &::before {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+            }
+        }
+    }
+}

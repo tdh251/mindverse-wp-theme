@@ -1,0 +1,111 @@
+@use '../core.scss' as *;
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+    &:has(.swiper-boxshadow) {
+        overflow: visible;
+        .carousel-item {
+            opacity: 0;
+            transition-duration: .3s;
+            transition-timing-function: inherit;
+            transition-property: opacity;
+            &.swiper-slide-fully-visible, &.swiper-slide-active, &.swiper-slide-visible {
+                opacity: 1;
+            }
+        }
+    }
+    .carousel-container {
+        position: static;
+        overflow: visible;
+        &:not(.swiper-vertical) {
+            margin-inline: calc( -1 * ( var(--mv-spacing-inline) / 2 ));
+            .carousel-item {
+                padding-inline: calc( var(--mv-spacing-inline) / 2 );
+            }
+        }
+        &.swiper-grid {
+            .carousel-inner {
+                flex-wrap: wrap;
+            }
+        }
+        &.swiper-vertical {
+            margin-block: calc(-1 * ( var(--mv-spacing-block) / 2 ));
+            overflow-y: clip;
+            height: 100vh;
+            .carousel-inner {
+                flex-direction: column;
+            }
+            .carousel-item {
+                height: fit-content !important;
+                padding-block: calc( var(--mv-spacing-block) / 2 );
+            }
+        }
+        &.swiper-grid {
+            margin-inline: calc( -1 * ( var(--mv-spacing-inline) / 2 ));
+            margin-block: calc( -1 * ( var(--mv-spacing-block) / 2 ));
+            .carousel-item {
+                padding-inline: calc( var(--mv-spacing-inline) / 2 );
+                padding-block: calc( var(--mv-spacing-block) / 2 );
+            }
+        }
+    }
+    .carousel-inner {
+        display: flex;
+        // width: 100%;
+    }
+    .carousel-item {
+        height: auto;
+    }
+    &-pagination {
+        margin-top: 50px;
+        @include d-flex(15px, center, center);
+        .bullet {
+            position: relative;
+            display: block;
+            @include round-box(12px);
+            background-color: #C8C8C8;
+            overflow: hidden;
+            cursor: pointer;
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                @include transition(.3s, linear, opacity);
+                background: linear-gradient(90deg, #EA580C 0%, #F97316 50%, #F59E0B 100%);
+            }
+            &.is-active, &:hover{
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .carousel-navigation {
+        margin-top: 30px;
+    }
+    &-navigation {
+        pointer-events: none;
+        @include d-flex(15px);
+        width: 100%;
+        justify-content: center;
+        &.carousel-navigation-hide {
+            display: none;
+        }
+        .carousel-button {
+            pointer-events: visible;
+            color: #2B2B2B;
+            @include round-box(60px);
+            background-color: #FFF;
+            box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.05), 0 1px 1px -0.5px rgba(24, 24, 27, 0.05), 0 3px 3px -1.5px rgba(24, 24, 27, 0.05), 0 6px 6px -3px rgba(24, 24, 27, 0.05), 0 12px 12px -6px rgba(24, 24, 27, 0.05), 0 24px 24px -12px rgba(24, 24, 27, 0.05);
+            &:hover {
+                background-color: #9578FF;
+                color: #FFF;
+            }
+            &.swiper-button-disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
+}

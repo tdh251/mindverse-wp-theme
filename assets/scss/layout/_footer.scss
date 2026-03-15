@@ -1,0 +1,29 @@
+@use '../core.scss' as *;
+
+.footer {
+    overflow-x: clip;
+}
+
+#footer {
+    &[data-layout="default"] {
+        padding-inline: 15px;
+        background-color: #1f1f1f;
+        .footer-inner {
+            @include container;
+            @include d-flex(null, center, center);
+            text-align: center;
+            height: 90px;
+        }
+        p {
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 500;
+            > a {
+                color: inherit;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

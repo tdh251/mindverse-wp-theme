@@ -1,0 +1,566 @@
+@use '../core.scss' as *;
+
+/******** Marquee ********/
+.marquee {
+    .marquee-inner {
+        --mv-spacing-inline: 100px;
+        --mv-animation-duration: 30s;
+        display: flex;
+        overflow-x: clip;
+         --mv-translate-x: -100%;
+        &[data-direction="rtl"] {
+            --mv-translate-x: calc( -100% - ( var(--mv-spacing-inline) / 2 ) );
+        }
+        &[data-direction="ltr"] {
+            --mv-translate-x: calc( 100% + ( var(--mv-spacing-inline) / 2 ) );
+            justify-content: end;
+        }
+        &:hover {
+            &.pause-on-hover {
+                .marquee-list {
+                    animation-play-state: paused;
+                }
+            }
+        }
+    }
+    .marquee-list {
+        display: flex;
+        align-items: center;
+        min-width: max-content;
+        animation: marquee var(--mv-animation-duration) linear infinite;
+        gap: var(--mv-spacing-inline);
+        will-change: transform;
+        &.main {
+            padding-right: calc( var(--mv-spacing-inline) / 2 );
+        }
+        &.clone {
+            padding-left: calc( var(--mv-spacing-inline) / 2 );
+        }
+    }
+    .marquee-item {
+        flex-shrink: 0;
+        @include d-inline-flex(0, center, center);
+        &-image {
+            overflow: hidden;
+        }
+    }
+}
+
+/** Highligh */
+.highlight-typing {
+    display: inline;
+    position: relative;
+    z-index: 1;
+    &[data-effect="typing-2"] {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        background: linear-gradient(90deg, rgba(105, 56, 239, 0.20) 0%, rgba(105, 56, 239, 0.06) 100%);
+        transform-origin: left center;
+        vertical-align: bottom;
+        .dynamic-word {
+            display: inline-block;
+            padding-inline: 8px;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #00aaff;
+            left: 0; 
+            border-radius: 99px;
+            background: linear-gradient(90deg, #00FFAE 0%, #00C0FF 100%);
+        }
+    }
+}
+
+/** Back To Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--mv-primary-color);
+    @include round-box(50px);
+    z-index: 999999;
+    scale: 0;
+    transition: scale .5s ease;
+    color: var(--mv-secondary-color, #000);
+    &.is-show {
+        scale: 1;
+    }
+}
+
+/** Body Overrlay */
+.body-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    cursor: pointer;
+    &.is-visible  {
+        pointer-events: visible;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/** Background Overlay */
+.background-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    @include transition(.3s, linear, opacity, background-color);
+    pointer-events: none;
+    background: center center / 100% no-repeat;
+}
+
+/** Video Popup */
+.video-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+    @include d-flex(0, center, center);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 50px 15px;
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    &-inner {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        aspect-ratio: 16 / 9;
+        background-color: #000;
+        transform: scale(1);
+        transition: transform 0.3s ease;
+        // overflow: hidden;
+        pointer-events: visible;
+    }
+
+    &.is-visible &-inner {
+        transform: scale(1);
+    }
+    iframe {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    .button-close {
+        pointer-events: visible;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba($color: #FFF, $alpha: 0.05);
+        transform: translateY(-100%);
+        border-radius: 0;
+        .icon-X {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.mindverse-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight {
+    display: inline-block;
+}
+
+.highlight-icon, .highlight-image, .highlight-wrapper:not(:has(.highlight-text)){
+    @include d-inline-flex(null, center, center);
+    vertical-align: middle;
+}
+
+.highlight-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.highlight-text {
+    display: inline;
+}
+
+.highlight-icon {
+    svg {
+        height: auto;
+    }
+}
+
+[data-effect="random-transition"] {
+    .image-random-transition {
+        position: absolute;
+        display: block;
+        inset: 0;
+        opacity: 0;
+        text-align: center;
+        img {
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+        }
+        &:first-child() {
+            opacity: 1;
+        }
+    }
+}
+
+
+[data-text]:not(.highlight-typing):not([data-hover="text-flip-3d"]) {
+    position: relative;
+    > * {
+        opacity: 0;
+    }
+    &::before {
+        content: attr(data-text);
+        display: inline-block;
+        position: relative;
+        @include transition(.3s, ease, opacity);
+    }
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0;
+        @include transition(.3s, ease, opacity);
+        pointer-events: none;
+    }
+    button:hover &,
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+        &::before {
+            opacity: 0;
+        }
+    }
+}
+
+.blur-bottom-site {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    pointer-events: none;
+    z-index: 999;
+    .blur {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .blur-1 {
+        mask-image: linear-gradient(transparent 50%, #000 62.5%, #000 75%, transparent 87.5%);
+        backdrop-filter: blur(.875px);
+    }
+    .blur-2 {
+        mask-image: linear-gradient(transparent 62.5%, #000 75%, #000 87.5%, transparent 100%);
+        backdrop-filter: blur(1.75px);
+    }
+    .blur-3 {
+        mask-image: linear-gradient(transparent 75%, #000 87.5%, #000 100%);
+        backdrop-filter: blur(3.5px);
+    }
+}
+
+.box-gradient, .button-gradient {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: initial;
+        opacity: 0;
+	    background: center center / cover no-repeat;
+        @include transition(.3s, linear, opacity);
+    }
+    > * {
+        position: relative;
+    }
+    &:hover, &.is-active {
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.box-gradient {
+    &::before {
+        @include transition(.3s, ease, opacity);
+    }
+}
+
+.icon {
+    @include d-inline-flex(null, center, center);
+}
+
+.svg-render {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.is-sticky, .pin-spacer {
+    transition: none !important;
+}
+
+.is-sticky {
+    height: fit-content !important;
+}
+
+.pin-spacer {
+    // height: auto !important;
+    // padding: 0 !important;
+}
+
+.gradient-3-color {
+    --gradient-color: #434AFF;
+    --gradient-color-2: #47B2FF;
+    --gradient-color-3: #39EDAC;
+    --mv-angle: 270deg;
+    background: linear-gradient(var(--mv-angle), var(--gradient-color) 13.62%, var(--gradient-color-2) 63.88%, var(--gradient-color-3) 91.61%);
+}
+
+.gradient-6-color {
+    --mv-angle: 180deg;
+    --gradient-color: #7648FF;
+    --gradient-color-2: #4A92FF;
+    --gradient-color-3: #47F3FF;
+    --gradient-color-4: #3BFF93;
+    --gradient-color-5: #FEBE57;
+    --gradient-color-6: #FE487B;
+    --mv-angle: 90deg;
+    background: linear-gradient(var(--mv-angle), var(--gradient-color) 0%, var(--gradient-color-2) 19.77%, var(--gradient-color-3) 39.54%, var(--gradient-color-4) 59.88%, var(--gradient-color-5) 80.21%, var(--gradient-color-6) 100%);
+}
+
+.box-border-gradient {
+    border: var(--mv-border-width, 10px) solid #0000;
+    background: linear-gradient( var(--mv-background-color, #000), var(--mv-background-color-b, #000) ) padding-box, linear-gradient(
+        var(--mv-angle),
+        var(--gradient-color, #434AFF),
+        var(--gradient-color-2, #47B2FF)
+        ) border-box !important;
+    animation: 5s rotate linear infinite;
+    &.three-colors {
+        background: linear-gradient( var(--mv-background-color, #000), var(--mv-background-color-b, #000) ) padding-box, linear-gradient(
+            var(--mv-angle),
+            var(--gradient-color, #434AFF),
+            var(--gradient-color-2, #47B2FF),
+            var(--gradient-color-3, #39EDAC)
+        ) border-box !important;
+    }
+    &.four-colors {
+        background: linear-gradient( var(--mv-background-color, #000), var(--mv-background-color-b, #000) ) padding-box, linear-gradient(
+            var(--mv-angle),
+            var(--gradient-color, #434AFF),
+            var(--gradient-color-2, #47B2FF),
+            var(--gradient-color-3, #39EDAC),
+            var(--gradient-color-4, #47B2FF)
+        ) border-box !important;
+    }
+    &.five-colors {
+        background: linear-gradient( var(--mv-background-color, #000), var(--mv-background-color-b, #000) ) padding-box, linear-gradient(
+            var(--mv-angle),
+            var(--gradient-color, #434AFF),
+            var(--gradient-color-2, #47B2FF),
+            var(--gradient-color-3, #39EDAC),
+            var(--gradient-color-4, #47B2FF),
+            var(--gradient-color-5, #434AFF)
+        ) border-box !important;
+    }
+    &.six-colors {
+        background: linear-gradient( var(--mv-background-color, #000), var(--mv-background-color-b, #000) ) padding-box, linear-gradient(
+            var(--mv-angle),
+            #FFF 0%,
+            var(--gradient-color, #7648FF) 0%,
+            var(--gradient-color-2, #4A92FF) 19.77%,
+            var(--gradient-color-3, #47F3FF) 39.54%,
+            var(--gradient-color-4, #3BFF93) 59.88%,
+            var(--gradient-color-5, #FEBE57) 80.21%,
+            var(--gradient-color-6, #FE487B) 100%,
+        ) border-box !important;
+    }
+}
+
+// Link Hover
+[data-hover="text-underline"] {
+    &:hover {
+        text-decoration-line: underline;
+        text-decoration-thickness: var(--mv-line-thickness, 1px);
+        text-decoration-color: currentColor; 
+        text-underline-offset: 5px;
+    }
+}
+
+[data-hover="text-underline-slide"] {
+    > a , > span {
+        display: inline;
+        transition: background-size .5s ease !important;
+        background-image: linear-gradient(
+            transparent calc(100% - var(--mv-line-thickness, 1px)),
+            currentColor 0
+        );
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+    }
+    &:hover  {
+        > a , > span {
+            background-size: 100% 100%;
+            background-position: left bottom;
+        }
+    }
+
+    &:not(:hover) { 
+        > a , > span {
+            background-position: right bottom;
+        }
+    }
+}
+
+[data-hover="text-flip-3d"] {
+    display: block;
+    --mv-translate-z: 11px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-90deg) ;
+    @include transition(.3s, ease, transform);
+    > a , > span{
+        display: block;
+        position: relative;
+        z-index: 99;
+        opacity: 0;
+    }
+    &::before, &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: inherit;
+        pointer-events: none;
+    }
+    &::before {
+        color: currentColor;
+        transform: rotateX(90deg) translateZ(var(--mv-translate-z));
+    }
+    &::after {
+        color: var(--mv-link-hover-color);
+        transform: translateZ(var(--mv-translate-z));
+    }
+    &:hover, 
+    .links li:hover &,
+    .team-title:hover & {
+        transform: rotateX(0deg) ;
+    }
+}
+
+.text-gradient {
+    --mv-angle: 270deg;
+    --gradient-color: #434AFF;
+    --gradient-color-2: #47B2FF;
+    --gradient-color-3: #39EDAC;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text !important;
+    background: linear-gradient(var(--mv-angle), var(--gradient-color) 0%, var(--gradient-color-2) 100%);
+    -webkit-text-fill-color: transparent;
+    &.three-colors {
+        background: linear-gradient(var(--mv-angle), var(--gradient-color) 0%, var(--gradient-color-2) 50%, var(--gradient-color-3) 100%);
+    }
+}
+
+.feature-list {
+    @include d-flex(10px);
+    flex-direction: column;
+    .list-item {
+        @include d-flex(15px, center);
+    }
+}
+
+.transition-normal {
+    transition: .3s linear;
+}
+
+.box-bubble {
+    position: relative;
+    color: #FFF;
+    background: linear-gradient(180deg, #AD9EFF 0%, #CBB5FF 103.56%);
+    padding: 6px 7px;
+    border-radius: 24px;
+    &::after {
+        content: '';
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        background: inherit;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        left: 9px;
+        bottom: 0;
+        transform: translateY(55%) scaleY(-1);
+        z-index: -1;
+    }
+}
+
+[data-text-animation], [data-gsap-animation] {
+    visibility: hidden;
+}
+
+[data-text-animation] {
+    .word, .line, .char {
+        will-change: transform, opacity;
+    }
+}
+
+[data-gsap-animation] {
+    transition: none !important;
+}
+
+[data-scrolling-effects] {
+    visibility: hidden;
+}
+
+.nice-select {
+    display: flex;
+    align-items: center;
+    ul.list {
+        width: 100%;
+        margin-top: 30px;
+        opacity: 0;
+        transform: translate(0, 0);
+        pointer-events: none;
+    }
+    &.open {
+        ul.list {
+            margin-top: 1px;
+            opacity: 1;
+            pointer-events: visible;
+        }
+    }
+}

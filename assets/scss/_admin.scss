@@ -1,0 +1,18 @@
+.admin-bar {
+    #header-sticky { 
+        top: 32px;
+    }
+    #header-desktop {
+        &.header-transparent {
+            top: 32px;
+        }
+    }
+    #smooth-wrapper {
+        padding-top: 32px;
+        #header-desktop {
+            &.header-transparent {
+                top: 0;
+            }
+        }
+    }
+}
