@@ -11,11 +11,12 @@ if(is_single()) {
         $breadcrumb_highight = __( 'Tag', 'mindverse' );
     } elseif ( is_date() ) {
         $breadcrumb_highight = __( 'Date', 'mindverse' );
+    } elseif ( is_shop() ) {
+        $breadcrumb_highight = __('Shop', 'mindverse');
     }
 } elseif( is_search() ) {
     $breadcrumb_highight = __('Search', 'mindverse');
-}
-else {
+} else {
     $breadcrumb_highight = mindverse()->get_singular_option('breadcrumb_highight', get_the_title());
 }
 ?>

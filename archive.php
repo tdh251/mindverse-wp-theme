@@ -16,6 +16,7 @@ if( isset( $_GET['sidebar'] ) ) {
 
 <?php get_header(); ?>
 <main id="main">
+    <h1>Hahahaha</h1>
     <?php
         if( $before_page_template_id !== 0 ) {
             echo \Elementor\Plugin::$instance->frontend->get_builder_content_for_display( $before_page_template_id );

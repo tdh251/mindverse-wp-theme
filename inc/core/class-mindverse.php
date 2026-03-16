@@ -13,6 +13,7 @@ use Mindverse\Inc\Integrations\Redux\Redux_Hooks;
 use Mindverse\Inc\Integrations\Redux\Redux_Theme_Options;
 use Mindverse\Inc\Integrations\Redux\Redux_Singular_Options;
 use \Mindverse\Inc\Integrations\Elementor\Elementor_Init;
+use \Mindverse\Inc\Integrations\Woocommerce\Woo_Init;
 
 // use Mindverse\Inc\Core\Options;
 
@@ -45,6 +46,9 @@ if(!class_exists('Mindverse')) {
             $this->assets = new Assets( $this->options );
             if ( class_exists( 'Pxl_Elementor' ) ) { 
                 new PXL_Hooks( $this->options );
+            }
+            if( class_exists( 'Woocommerce' ) ) {
+                new Woo_Init( $this->options );
             }
             if ( class_exists( 'Redux' ) && is_admin()) {
                 new Redux_Hooks( $this->options );

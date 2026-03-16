@@ -5,7 +5,7 @@
  * @package Mindverse
  */
 
-if ( class_exists( 'WooCommerce' ) && (is_product_category() || is_shop() || is_product()) ) {
+if ( class_exists( 'WooCommerce' ) && ( is_product_category() || is_shop() || is_product() ) ) {
     $sidebar = ' sidebar-shop';
 }  else {
     $sidebar = ' sidebar-blog';

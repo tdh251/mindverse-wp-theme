@@ -1,0 +1,89 @@
+@use '../../../assets/scss/core' as *;
+
+.screen-reader-text {
+    display: none;
+}
+
+body.woocommerce {
+    #main {
+        .inner {
+            max-width: 1440px;
+            padding-block: 123px 172px;
+            margin: 0 auto;
+            .content-area {
+                flex: 0 1 945px;
+            }
+        }
+    }
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce #respond input#submit, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce a.button, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce button.button, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce input.button {
+    display: inline-flex;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:hover, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce #respond input#submit:hover, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce a.button:hover, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce button.button:hover, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce input.button:hover {
+    background-color: transparent;
+}
+
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) ul.products li.product .price {
+    color: inherit;
+}
+
+.price {
+    overflow: visible;
+}
+
+.woocommerce ul.products li.product .price, 
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price, 
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product span.price {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+.woocommerce ul.products li.product .price ins {
+    background: transparent;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.woocommerce ul.products li.product .onsale {
+    top: 15px;
+    left: 15px;
+    right: auto;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: var(--mv-primary-color);
+    color: var(--mv-secondary-color);
+    min-height: 24px;
+    min-width: 36px;
+    padding-inline: 10px;
+    line-height: normal;
+    border-radius: 5px;
+}

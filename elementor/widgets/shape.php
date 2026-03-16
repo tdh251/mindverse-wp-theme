@@ -73,6 +73,11 @@ class Shape extends Mindverse_Widget_Base {
             'name' => 'section_shape_style', 
             'label' => __('Shape', 'mindverse'),
         ]);
+        // $this->color([
+        //     'name' =>  'background_color',
+        //     'label' => __('Background Color', 'mindverse'),
+        //     'alpha' => false
+        // ]);
         // Background
         $this->group_background([
             'name' => 'shape_background',

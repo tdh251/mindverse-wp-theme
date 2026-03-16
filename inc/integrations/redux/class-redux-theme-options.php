@@ -468,7 +468,7 @@ class Redux_Theme_Options extends Hookable {
                         'type'     => 'media',
                         'title'    => __('Header Logo', 'mindverse'),
                         'default' => array(
-                            'url' => content_url('default-assets/imgs/logo.png')
+                            'url' => get_template_directory_uri() . '/assets/img/site-logo.webp'
                         ),
                         'url'      => false,
                         'required' => ['header_mode', '=', 'default'],
@@ -487,7 +487,7 @@ class Redux_Theme_Options extends Hookable {
                         'type'     => 'media',
                         'title'    => __('Mobile Logo', 'mindverse'),
                         'default' => array(
-                            'url'=> content_url('default-assets/imgs/logo.png')
+                            'url'=> get_template_directory_uri() . '/assets/img/site-logo.webp'
                         ),
                         'url'      => false,
                     ),
@@ -986,6 +986,120 @@ class Redux_Theme_Options extends Hookable {
                         'width'          => true, 
                         'height'         => false,
                     ),
+                )
+            )
+        ));
+
+        // Shop
+        \Redux::setSection($opt_name, array(
+            'title' => __('Shop', 'mindverse'),
+            'icon'  => 'eicon-shop',
+        ));
+        \Redux::setSection($opt_name, array(
+            'title' => __('Archive', 'mindverse'),
+            'icon'  => 'eicon-archive-posts',
+            'subsection' => true,
+            'fields'     => array_merge(
+                array(
+                    array(
+                        'id'       => 'shop_before_template_id',
+                        'type'     => 'select',
+                        'title'    => __('Page Before Template', 'mindverse'),
+                        'options'  => Helpers::get_templates_by_type('section'),
+                        'default'  => '',
+                    ),
+                    array(
+                        'id'       => 'shop_after_template_id',
+                        'type'     => 'select',
+                        'title'    => __('Page After Template', 'mindverse'),
+                        'options'  => Helpers::get_templates_by_type('section'),
+                        'default'  => '',
+                    ),
+                ),
+                Helpers::get_page_hero_options('shop'),
+                Helpers::get_breadcrumb_option('shop'),
+                array(
+                    array(
+                        'id' => 'shop_sidebar_mode_heading',
+                        'title' => esc_html__('Sidebar', 'mindverse'),
+                        'type'  => 'section',
+                        'indent' => true,
+                    ),
+                    array(
+                        'id'      => 'shop_sidebar_mode',
+                        'type'    => 'button_set',
+                        'title'   => __( 'Sidebar Mode', 'mindverse' ),
+                        'options' => [
+                            'none' => __('None', 'mindverse'),
+                            'left' => __('Left', 'mindverse'),
+                            'right' => __('Right', 'mindverse'),
+                        ], 
+                        'default' => 'none',
+                    ),
+                    array(
+                        'id' => 'shop_css_heading',
+                        'title' => esc_html__('Custom Layout', 'mindverse'),
+                        'type'  => 'section',
+                        'indent' => true,
+                    ),
+                    array(
+                        'id'             => 'shop_content_spacing',
+                        'type'           => 'spacing',
+                        'right'          => false,
+                        'left'           => false,
+                        'mode'           => 'padding',
+                        'units'          => array( 'px' ),
+                        'units_extended' => 'false',
+                        'title'          => esc_html__( 'Spacing Top/Bottom', 'mindverse' ),
+                        'default'        => array(
+                            'padding-top'    => '',
+                            'padding-bottom' => '',
+                            'units'          => 'px',
+                        )
+                    ), 
+                    array(
+                        'id'             => 'shop_container_width',
+                        'type'           => 'dimensions',
+                        'units'          => array('px'), 
+                        'units_extended' => 'false',
+                        'title'          => __('Container Width', 'mindverse'),
+                        'width'          => true, 
+                        'height'         => false,
+                    ),
+                    array(
+                        'id'       => 'product_columns',
+                        'type'     => 'select',
+                        'title'    => esc_html__('Shop Column', 'mindverse'), 
+                        'options'  => array(
+                            '1'    => __('1 Column', 'mindverse'),
+                            '2'    => __('2 Column', 'mindverse'),
+                            '3'    => __('3 Column', 'mindverse'),
+                            '4'    => __('4 Column', 'mindverse'),
+                            '5'    => __('5 Column', 'mindverse'),
+                        ),
+        				'select2'  => [ 'allowClear' => false ],
+                        'default'  => '3',
+                    ),
+                    array(
+                        'id'       => 'product_thumb_size',
+                        'type'     => 'dimensions',
+                        'units'    => array(''),
+                        'title'    => esc_html__('Thumbnail Size (Width/Height)', 'mindverse'),
+                        'default'  => array(
+                            'Width'   => 0, 
+                            'Height'  => 0
+                        ),
+                    ),
+                    array(
+                        'id'            => 'products_per_page',
+                        'type'          => 'slider',
+                        'title'         => esc_html__( 'Products Per Page', 'mindverse' ),
+                        'default'       => 9,
+                        'min'           => 1,
+                        'step'          => 1,
+                        'max'           => 50,
+                        'display_value' => 'label',
+                    )
                 )
             )
         ));

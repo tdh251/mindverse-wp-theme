@@ -165,7 +165,7 @@ class Redux_Singular_Options extends Hookable {
                             'type'     => 'media',
                             'title'    => __('Header Logo', 'mindverse'),
                             'default' => array(
-                                'url' => content_url('default-assets/imgs/logo.png')
+                                'url' => get_template_directory_uri() . '/assets/img/site-logo.webp'
                             ),
                             'url'      => false,
                             'required' => ['header_mode', '=', 'default'],
@@ -183,7 +183,7 @@ class Redux_Singular_Options extends Hookable {
                             'type'     => 'media',
                             'title'    => __('Mobile Logo', 'mindverse'),
                             'default' => array(
-                                'url'=> content_url('default-assets/imgs/logo.png')
+                                'url'=> get_template_directory_uri() . '/assets/img/site-logo.webp'
                             ),
                             'url'      => false,
                         ),

@@ -16,13 +16,6 @@ class Elementor_Init extends Hookable {
 
     }
 
-    // function add_panel_tab() {
-    //     \Elementor\Controls_Manager::add_tab(
-    //         'mindverse-tab',
-    //         esc_html__( 'Mindverse', 'mindverse' )
-    //     );
-    // }
-
     /**
      * Resgister element
      */

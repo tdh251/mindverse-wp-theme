@@ -40,6 +40,8 @@ class Customize extends Hookable {
 		$sidebar_pos_class = mindverse()->get_theme_option('blog_sidebar_mode', 'none');
 		if( is_singular('post') ) {
 			$sidebar_pos_class = mindverse()->get_theme_option('single_post_sidebar_mode', 'none');
+		}elseif ( is_shop() ) {
+			$sidebar_pos_class = mindverse()->get_theme_option('shop_sidebar_mode', 'none');
 		}
 		if( isset( $_GET['sidebar'] ) ) {
 			$sidebar_pos_class = $_GET['sidebar'];

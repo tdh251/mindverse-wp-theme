@@ -12,6 +12,7 @@ button, .button {
         @include d-inline-flex(null, center, center);
         position: relative;
         z-index: 9;
+        transition: .3s;
     }
     &.button-primary {
         background-color: var(--mv-primary-color);

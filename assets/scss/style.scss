@@ -45,6 +45,10 @@
 @use '../../elementor/assets/scss/widgets/post-grid.scss';
 
 
+/** Woocomerce */
+@use '../../woocommerce/assets/scss/reset.scss' as wooReset;
+@use '../../woocommerce/assets/scss/shop.scss';
+
 /** Admin */
 @use 'admin.scss';
 
