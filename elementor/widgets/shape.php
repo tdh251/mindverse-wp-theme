@@ -45,6 +45,7 @@ class Shape extends Mindverse_Widget_Base {
                 '' => __('Default', 'mindverse'),
                 'gradient-3-color' => __('Gradient 3 Color', 'mindverse'),
                 'gradient-6-color' => __('Gradient 6 Color', 'mindverse'),
+                'radient-js' => __('Radient Js', 'mindverse')
             ]
         ]);
         $this->slider([
@@ -73,11 +74,17 @@ class Shape extends Mindverse_Widget_Base {
             'name' => 'section_shape_style', 
             'label' => __('Shape', 'mindverse'),
         ]);
-        // $this->color([
-        //     'name' =>  'background_color',
-        //     'label' => __('Background Color', 'mindverse'),
-        //     'alpha' => false
-        // ]);
+        $this->color([
+            'name' =>  'background_color',
+            'label' => __('Color', 'mindverse'),
+            'alpha' => false,
+            'selectors' => [
+                '{{WRAPPER}} .shape' => '--radient-js-color: {{VALUE}};'
+            ],
+            'condition' => [
+                'shape_style' => 'radient-js'
+            ]
+        ]);
         // Background
         $this->group_background([
             'name' => 'shape_background',

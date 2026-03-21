@@ -98,14 +98,14 @@
 .body-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 10000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
     pointer-events: none;
     cursor: pointer;
-    &.is-visible  {
+    &.is-visible {
         pointer-events: visible;
         opacity: 1;
         visibility: visible;
@@ -126,7 +126,7 @@
 .video-popup {
     position: fixed;
     inset: 0;
-    z-index: 1001;
+    z-index: 10001;
     @include d-flex(0, center, center);
     opacity: 0;
     visibility: hidden;
@@ -175,11 +175,6 @@
     }
 }
 
-.mindverse-item {
-    position: relative;
-    overflow: hidden;
-}
-
 .highlight {
     display: inline-block;
 }
@@ -223,7 +218,7 @@
 }
 
 
-[data-text]:not(.highlight-typing):not([data-hover="text-flip-3d"]) {
+[data-text]:not(.highlight-typing):not([data-hover="text-flip-3d"]):not(.woosc-btn) {
     position: relative;
     > * {
         opacity: 0;

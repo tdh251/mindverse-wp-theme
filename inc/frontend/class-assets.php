@@ -55,6 +55,9 @@ class Assets extends Hookable {
         wp_enqueue_style('mindverse-block-style', get_template_directory_uri() . '/assets/css/wp-block.css', [], $this->version);
         wp_add_inline_style( 'mindverse-style', $this->generate_global_inline_styles() );
 		wp_add_inline_style( 'mindverse-style', $this->render_inline_style() );
+
+        wp_enqueue_style('mindverse-custom-style', get_template_directory_uri() . '/assets/css/custom-style.css', $this->version);
+
         // Enquence Google Font
         $google_font_url = $this->get_google_fonts_url();
         if ( ! empty( $google_font_url ) ) {

@@ -58,7 +58,7 @@ if(!class_exists('Mindverse')) {
             $this->layout = new Layout( $this->options );
             $this->post = new Post_Manager( $this->options, $this->layout );
             if ( did_action( 'elementor/loaded' )) {
-                new Elementor_Init();
+                new Elementor_Init( $this->assets );
             }
         }
 

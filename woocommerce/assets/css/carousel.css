@@ -1,0 +1,63 @@
+.vertical-carousel,
+.vc-viewport,
+.vc-track,
+.vc-item,
+.horizontal-carousel,
+.hc-viewport,
+.hc-track,
+.hc-item {
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+}
+
+.vc-viewport {
+    overflow: hidden;
+    height: calc( 100% + 1px );
+    cursor: grab;
+    touch-action: none;
+}
+
+.hc-viewport {
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+    touch-action: none;
+}
+
+.vc-viewport.is-dragging, .hc-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+.vc-track {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    will-change: transform;
+}
+
+.hc-track {
+    display: flex;
+    gap: 15px;
+    will-change: transform;
+}
+
+.vc-item {
+    flex: 0 0 auto;
+    padding: 15px;
+    border-radius: 20px;
+    border: thin solid #D5D7DA;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1px;
+}
+
+.vc-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    -webkit-user-drag: none;
+}
+

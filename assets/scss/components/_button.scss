@@ -407,10 +407,10 @@ button, .button {
     }
 }
 
-.button[data-type="submit"], .post-filter-button {
-    &.is-loading {
-        pointer-events: none;
-        filter: blur(1px);
+.button[data-type="submit"], .post-filter-button, .woocommerce .button, .woocommerce button, .woocommerce .woosc-adding, #cartDrawerContent {
+    &.is-loading, &.is-adding, &.loading {
+        pointer-events: none !important;
+        filter: blur(1px) !important;
         animation: pulseFade 2.5s ease-in-out infinite;
     }
 }

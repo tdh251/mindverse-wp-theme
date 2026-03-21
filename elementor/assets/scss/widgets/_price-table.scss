@@ -475,6 +475,7 @@
     &[data-layout_style="2"] {
         .price {
             border-radius: 24px;
+            overflow: hidden;
             background-color: rgba($color: #1B1B1B , $alpha: .4);
             border: thin solid rgba($color: #FFF, $alpha: .2);
             &::after {

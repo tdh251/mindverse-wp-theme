@@ -8,6 +8,19 @@
     let resizeTimeout;
     let lastScrollTop = 0;
     
+
+    function getSafeObjectData($element, key) {
+        const data = $element.data(key);
+        return data && typeof data === 'object' ? { ...data } : {};
+    }
+
+    function hasGSAP() {
+        return typeof gsap !== 'undefined';
+    }
+
+    function hasScrollTrigger() {
+        return typeof ScrollTrigger !== 'undefined';
+    }
     $( window ).on('resize', function() {
         windowWidth = $(window).width();
         windowHeight = $(window).height();
@@ -20,9 +33,11 @@
     $( window ).on( 'load', function() {
         windowWidth = $(window).width();
         windowHeight = $(window).height();
-        Mindverse.interactions.sticky();
-        Mindverse.events.initSmoothScroll();
-        Mindverse.events.textAnimation();
+        setTimeout(function () {  
+            Mindverse.interactions.sticky();
+            Mindverse.events.initSmoothScroll();
+            Mindverse.events.textAnimation();
+        }, 300)
         $('body').imagesLoaded().done( function( instance ) {
             Mindverse.interactions.scrollingEffects();
             setTimeout(() => {
@@ -615,27 +630,34 @@
                 $(this).css({'--mv-translate-z': `${height / 2}px`})
             })
         },
-        textAnimation: function () {  
-            const $selectors = $('[data-text-animation]');
-            if( !$selectors.length ) {
+        textAnimation: function () {
+            if (typeof SplitText === 'undefined' || !hasGSAP()) {
                 return;
             }
 
-            document.fonts.ready.then(function() {
-                $selectors.each(function( i, selector ) {
+            const $selectors = $('[data-text-animation]');
+
+            if (!$selectors.length) {
+                return;
+            }
+
+            const runAnimation = function () {
+                $selectors.each(function (_i, selector) {
                     const $selector = $(selector);
-                    const customSettings = $selector.data('text-animation') ?? {};
-                    const { 
-                        animation = '', 
-                        splitType = 'lines', 
-                        staggerEach = 0.015, 
-                        staggerFrom = 'start', 
-                        scrub = false, 
-                        toggleActions = 'none' 
-                    } = customSettings;
-        
+
+                    if ($selector.data('text-animation-initialized')) {
+                        return;
+                    }
+
+                    const customSettings = getSafeObjectData($selector, 'text-animation');
+                    const animation = customSettings.animation || '';
+                    const splitType = customSettings.splitType || 'lines';
+                    const staggerEach = customSettings.staggerEach ?? 0.015;
+                    const staggerFrom = customSettings.staggerFrom || 'start';
+                    const scrub = customSettings.scrub ?? false;
+                    const toggleActionEnd = customSettings.toggleActions || 'none';
+
                     let rawSettings = {};
-        
                     let splitSettings = {
                         autoSplit: true,
                         type: splitType,
@@ -643,16 +665,16 @@
                         wordsClass: 'word++',
                         charsClass: 'char++',
                     };
-        
-                    if( splitType === 'chars' ) {
+
+                    if (splitType === 'chars') {
                         splitSettings.type = 'words, chars';
-                    }else if( splitType === 'words' )  {
+                    } else if (splitType === 'words') {
                         splitSettings.type = 'lines, words';
-                    }else {
+                    } else {
                         splitSettings.type = 'lines';
                     }
-        
-                    let defaultSettings = {
+
+                    const defaultSettings = {
                         force3D: true,
                         duration: 1,
                         stagger: {
@@ -663,102 +685,138 @@
                             trigger: $selector[0],
                             start: 'top 90%',
                             end: 'top 10%',
-                            toggleActions: `play none none ${toggleActions}`,
+                            toggleActions: `play none none ${toggleActionEnd}`,
                             scrub: scrub,
                             markers: false,
                         },
-                    }
-                    const split = SplitText.create( $selector[0], splitSettings );
-                    if( !split[splitType].length ) {
+                    };
+
+                    const split = SplitText.create($selector[0], splitSettings);
+                    const targets = split[splitType];
+
+                    if (!targets || !targets.length) {
                         return;
                     }
-                    gsap.set( $selector, {visibility:"visible"} );
-                    switch( animation ) {
-                        case 'fadeIn' : 
+
+                    gsap.set($selector, { visibility: 'visible' });
+
+                    switch (animation) {
+                        case 'fadeIn':
                             rawSettings.opacity = scrub ? 0.025 : 0;
                             break;
-                        case 'fadeInUp' : 
+
+                        case 'fadeInUp':
                             rawSettings.opacity = 0;
                             rawSettings.y = 50;
                             break;
-                        case 'fadeInRight' : 
+
+                        case 'fadeInRight':
                             rawSettings.opacity = 0;
                             rawSettings.x = 50;
                             break;
-                        case 'fadeInDown' : 
+
+                        case 'fadeInDown':
                             rawSettings.opacity = 0;
                             rawSettings.y = -50;
                             break;
-                        case 'fadeInLeft' : 
+
+                        case 'fadeInLeft':
                             rawSettings.opacity = 0;
                             rawSettings.x = -50;
                             break;
-                        case 'slideUp' : 
+
+                        case 'slideUp':
                             rawSettings.yPercent = 100;
-                            if( splitType === 'chars' ) {
-                                gsap.set( split.words, {overflow: 'hidden'} )
-                            } else if( splitType === 'words' ) {
-                                gsap.set( split.lines, {overflow: 'hidden'} )                        
+
+                            if (splitType === 'chars') {
+                                gsap.set(split.words, { overflow: 'hidden' });
+                            } else if (splitType === 'words') {
+                                gsap.set(split.lines, { overflow: 'hidden' });
                             } else {
-                                splitSettings.type = 'lines';
-                                splitSettings.linesClass = 'line-wrap++';
-                                const wrapSplit = SplitText.create( $selector[0], splitSettings );
-                                gsap.set( wrapSplit.lines, {overflow: 'hidden'} )    
+                                const wrapSplit = SplitText.create($selector[0], {
+                                    autoSplit: true,
+                                    type: 'lines',
+                                    linesClass: 'line-wrap++',
+                                });
+                                gsap.set(wrapSplit.lines, { overflow: 'hidden' });
                             }
                             break;
-                        case 'slideDown' : 
+
+                        case 'slideDown':
                             rawSettings.yPercent = -100;
-                            if( splitType === 'chars' ) {
-                                gsap.set( split.words, {overflow: 'hidden'} )
-                            } else if( splitType === 'words' ) {
-                                gsap.set( split.lines, {overflow: 'hidden'} )                        
+
+                            if (splitType === 'chars') {
+                                gsap.set(split.words, { overflow: 'hidden' });
+                            } else if (splitType === 'words') {
+                                gsap.set(split.lines, { overflow: 'hidden' });
                             } else {
-                                splitSettings.type = 'lines';
-                                splitSettings.linesClass = 'line-wrap++';
-                                const wrapSplit = SplitText.create( $selector[0], splitSettings );
-                                gsap.set( wrapSplit.lines, {overflow: 'hidden'} )    
+                                const wrapSplit = SplitText.create($selector[0], {
+                                    autoSplit: true,
+                                    type: 'lines',
+                                    linesClass: 'line-wrap++',
+                                });
+                                gsap.set(wrapSplit.lines, { overflow: 'hidden' });
                             }
                             break;
-                        case 'flyFlipX' :
-                            gsap.set( $selector, {perspective: 800} );
+
+                        case 'flyFlipX':
+                            gsap.set($selector, { perspective: 800 });
                             rawSettings = {
                                 opacity: 0.25,
                                 rotationX: -105,
-                                transformOrigin: "top center -65",
-                            }
+                                transformOrigin: 'top center -65',
+                            };
                             break;
-                        case 'flipX' :
+
+                        case 'flipX':
                             rawSettings.rotationX = 90;
                             break;
-                        case 'flipY' :
+
+                        case 'flipY':
                             rawSettings.rotationY = -90;
                             break;
-                        case 'zigzagZoom' :
-                            break;
-                        case 'fadeRotateInRight' :
+
+                        case 'fadeRotateInRight':
                             rawSettings = {
-                                rotate : 10,
+                                rotate: 10,
                                 opacity: 0,
-                                x: 50
-                            }
+                                x: 50,
+                            };
                             break;
-                        default: 
-                            rawSettings = customSettings;
+
+                        default:
+                            rawSettings = { ...customSettings };
                             break;
                     }
+
                     delete rawSettings.animation;
                     delete rawSettings.splitType;
                     delete rawSettings.staggerEach;
                     delete rawSettings.staggerFrom;
                     delete rawSettings.toggleActions;
                     delete rawSettings.scrub;
-                    if( typeof rawSettings !== 'object' || Object.keys(rawSettings).length === 0 ) {
+
+                    if (!rawSettings || typeof rawSettings !== 'object' || Object.keys(rawSettings).length === 0) {
                         return;
                     }
-                    const settings = { ...defaultSettings, ...rawSettings };
-                    gsap.from( split[splitType], settings);
-                })
-            })
+
+                    const settings = {
+                        ...defaultSettings,
+                        ...rawSettings,
+                        scrollTrigger: {
+                            ...defaultSettings.scrollTrigger,
+                        },
+                    };
+
+                    gsap.from(targets, settings);
+                    $selector.data('text-animation-initialized', true);
+                });
+            }
+                        if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(runAnimation);
+            } else {
+                runAnimation();
+            }
         },
     }
 

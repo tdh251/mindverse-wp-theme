@@ -1099,7 +1099,59 @@ class Redux_Theme_Options extends Hookable {
                         'step'          => 1,
                         'max'           => 50,
                         'display_value' => 'label',
+                    ),
+                    array(
+                        'id'            => 'related_products_per_page',
+                        'type'          => 'slider',
+                        'title'         => esc_html__( 'Related Products Per Page', 'mindverse' ),
+                        'default'       => 6,
+                        'min'           => 1,
+                        'step'          => 1,
+                        'max'           => 50,
+                        'display_value' => 'label',
                     )
+                )
+            )
+        ));
+
+        \Redux::setSection($opt_name, array(
+            'title' => __('Single Product', 'mindverse'),
+            'icon'  => 'eicon-single-posts',
+            'subsection' => true,
+            'fields'     => array_merge(
+                Helpers::get_page_hero_options('product'),
+                Helpers::get_breadcrumb_option('single_product'),
+                array(
+                    array(
+                        'id' => 'single_product_css_heading',
+                        'title' => esc_html__('Custom Layout', 'mindverse'),
+                        'type'  => 'section',
+                        'indent' => true,
+                    ),
+                    array(
+                        'id'             => 'single_product_content_spacing',
+                        'type'           => 'spacing',
+                        'right'          => false,
+                        'left'           => false,
+                        'mode'           => 'padding',
+                        'units'          => array( 'px' ),
+                        'units_extended' => 'false',
+                        'title'          => esc_html__( 'Spacing Top/Bottom', 'mindverse' ),
+                        'default'        => array(
+                            'padding-top'    => '',
+                            'padding-bottom' => '',
+                            'units'          => 'px',
+                        )
+                    ), 
+                    array(
+                        'id'             => 'single_product_container_width',
+                        'type'           => 'dimensions',
+                        'units'          => array('px'), 
+                        'units_extended' => 'false',
+                        'title'          => __('Container Width', 'mindverse'),
+                        'width'          => true, 
+                        'height'         => false,
+                    ),
                 )
             )
         ));
@@ -1216,191 +1268,5 @@ class Redux_Theme_Options extends Hookable {
             )
         ));
 
-     
-    
-        
-        // // Shop Settings
-        // \Redux::setSection($opt_name, array(
-        //     'title' => esc_html__('Shop', 'mindverse'),
-        //     'icon'  => 'eicon-products-archive',
-        //     'fields'     => array(
-        //     )
-        // ));
-        // \Redux::setSection($opt_name, array(
-        //     'title'      => esc_html__('Archive', 'mindverse'),
-        //     'icon'       => 'eicon-archive-posts',
-        //     'subsection' => true,
-        //     'fields'     => array_merge(
-        //         array(
-        //             array(
-        //                 'title' => esc_html__('General', 'mindverse'),
-        //                 'type'  => 'section',
-        //                 'id' => 'shop_general_h',
-        //                 'indent' => true,
-        //             ),
-        //             array(
-        //                 'id'       => 'shop_display',
-        //                 'type'     => 'button_set',
-        //                 'title'    => esc_html__('Shop', 'mindverse'),
-        //                 'options'  => array(
-        //                     'on' => esc_html__('On', 'mindverse'),
-        //                     'off' => esc_html__('Off', 'mindverse'),
-        //                 ),
-        //                 'default'  => 'on',
-        //             ),
-        //             array(
-        //                 'id'      => 'shop_slug',
-        //                 'type'    => 'text',
-        //                 'title'   => esc_html__('Shop Slug', 'mindverse'),
-        //                 'default' => '',
-        //                 'desc'     => 'Default: shop',
-        //                 'required' => array( 0 => 'shop_display', 1 => 'equals', 2 => 'on' ),
-        //                 'force_output' => true
-        //             ),
-        //             array(
-        //                 'id'      => 'shop_name',
-        //                 'type'    => 'text',
-        //                 'title'   => esc_html__('Shop Name', 'mindverse'),
-        //                 'default' => '',
-        //                 'desc'     => 'Default: Shop',
-        //                 'required' => array( 0 => 'shop_display', 1 => 'equals', 2 => 'on' ),
-        //                 'force_output' => true
-        //             ),
-        //             array(
-        //                 'id'    => 'archive_shop_link',
-        //                 'type'  => 'select',
-        //                 'title' => esc_html__( 'Custom Archive Page Link', 'mindverse' ), 
-        //                 'data'  => 'page',
-        //                 'args'  => array(
-        //                     'post_type'      => 'page',
-        //                     'posts_per_page' => -1,
-        //                     'orderby'        => 'title',
-        //                     'order'          => 'ASC',
-        //                 ),
-        //                 'required' => array( 0 => 'shop_display', 1 => 'equals', 2 => 'on' ),
-        //                 'force_output' => true
-        //             ),
-        
-        //             array(
-        //                 'title' => esc_html__('Display', 'mindverse'),
-        //                 'type'  => 'section',
-        //                 'id' => 'shop_display_h',
-        //                 'indent' => true,
-        //             ),
-
-        //             array(
-        //                 'id'            => 'shop_loop_image_max_height',
-        //                 'type'          => 'slider',
-        //                 'title'         => esc_html__( 'Featured Max Height', 'mindverse' ),
-        //                 'min'           => 0,
-        //                 'max'           => 1000,
-        //                 'display_value' => 'text',
-        //                 'output'        => array( '.woocommerce ul.products li.product .product-thumbnail img' => 'max-height' ),
-        //             ),
-        //         ),
-        //     ),
-        // ));
-        // \Redux::setSection($opt_name, array(
-        //     'title'      => esc_html__('Single Product', 'mindverse'),
-        //     'icon'       => 'eicon-single-post',
-        //     'subsection' => true,
-        //     'fields'     => array_merge(
-        //         array(
-        //             array(
-        //                 'title' => esc_html__('General', 'mindverse'),
-        //                 'type'  => 'section',
-        //                 'id' => 'shop_title_heading',
-        //                 'indent' => true,
-        //             ),
-        //             array(
-        //                 'id'        => 'product_columns',
-        //                 'type'      => 'slider',
-        //                 'title'     => esc_html__('Columns', 'mindverse'),
-        //                 'desc'      => esc_html__('Number of related products displayed per row.', 'mindverse'),
-        //                 "default"   => 3,
-        //                 "min"       => 1,
-        //                 "step"      => 1,
-        //                 "max"       => 100,
-        //                 'display_value' => 'label'
-        //             ), 
-        //             array(
-        //                 'id'        => 'products_per_page',
-        //                 'type'      => 'slider',
-        //                 'title'     => esc_html__('Product Per Page', 'mindverse'),
-        //                 'desc'      => esc_html__('Number of related products displayed on page.', 'mindverse'),
-        //                 "default"   => 9,
-        //                 "min"       => 1,
-        //                 "step"      => 1,
-        //                 "max"       => 100,
-        //                 'display_value' => 'label'
-        //             ), 
-        //             array(
-        //                 'title' => esc_html__('Post Title', 'mindverse'),
-        //                 'type'  => 'section',
-        //                 'id' => 'single_product_title_heading',
-        //                 'indent' => true,
-        //             ),
-        //         ),
-        //         mindverse_post_title_opts('product'),
-        //         array(
-        //             array(
-        //                 'id'       => 'single_product_title_custom',
-        //                 'type'     => 'text',
-        //                 'title'    => esc_html__('Post Title Custom', 'mindverse'),
-        //             ),
-        //             array(
-        //                 'id' => 'single_product_breadcrumb_heading',
-        //                 'title' => esc_html__('Breadcrumb', 'mindverse'),
-        //                 'type'  => 'section',
-        //                 'indent' => true,
-        //             ),
-        //             array(
-        //                 'id'       => 'single_product_breadcrumb',
-        //                 'type'     => 'button_set',
-        //                 'title'    => esc_html__('Breadcrumb', 'mindverse'),
-        //                 'options'  => array(
-        //                     'default' => esc_html__('Default', 'mindverse'),
-        //                     'custom'  => esc_html__('Custom', 'mindverse'),
-        //                 ),
-        //                 'default'  => 'default',
-        //             ),            
-        //             array(
-        //                 'id'      => 'single_product_breadcrumb_text',
-        //                 'type'    => 'text',
-        //                 'title'   => esc_html__('Breadcrumb Text', 'mindverse'),
-        //                 'default' => esc_html__('Single Product', 'mindverse'),
-        //                 'required' => array( 0 => 'single_product_breadcrumb', 1 => 'equals', 2 => 'custom' ),
-        //             ),
-        //             array(
-        //                 'id' => 'related_product_heading',
-        //                 'title' => esc_html__('Related Product', 'mindverse'),
-        //                 'type'  => 'section',
-        //                 'indent' => true,
-        //             ),
-        //             array(
-        //                 'id'        => 'related_product_columns',
-        //                 'type'      => 'slider',
-        //                 'title'     => esc_html__('Columns', 'mindverse'),
-        //                 'desc'      => esc_html__('Number of related products displayed per row.', 'mindverse'),
-        //                 "default"   => 3,
-        //                 "min"       => 1,
-        //                 "step"      => 1,
-        //                 "max"       => 10,
-        //                 'display_value' => 'label'
-        //             ), 
-        //             array(
-        //                 'id'        => 'related_products_per_page',
-        //                 'type'      => 'slider',
-        //                 'title'     => esc_html__('Product Per Page', 'mindverse'),
-        //                 'desc'      => esc_html__('Number of related products displayed on page.', 'mindverse'),
-        //                 "default"   => 4,
-        //                 "min"       => 1,
-        //                 "step"      => 1,
-        //                 "max"       => 10,
-        //                 'display_value' => 'label'
-        //             ), 
-        //         )
-        //     ),
-        // ));
     }
 }

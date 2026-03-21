@@ -36,6 +36,7 @@
                         <stop offset="0.1362" stop-color="#434AFF"/>
                         <stop offset="0.6388" stop-color="#47B2FF"/>
                         <stop offset="0.9161" stop-color="#39EDAC"/>
+                        
                         </linearGradient>
                     </defs>
                 </svg>`
@@ -99,6 +100,35 @@
                 </svg>`
             )
         }
+
+        if( $('[filter="url(#filter0_f_2246_1710)"]').length ) {
+            $(document.body).append(`
+                <svg class="svg-render">
+                    <defs>
+                        <filter id="filter0_f_2246_1710" x="-77" y="0" width="2144" height="2144" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_2246_1710"/>
+                        </filter>
+                    </defs>
+                </svg>`
+            )
+        }
+
+        if( $('[filter="url(#filter0_f_2326_6300)"]').length ) {
+            $(document.body).append(`
+                <svg class="svg-render">
+                    <defs>
+                        <filter id="filter0_f_2326_6300" x="-272" y="-511" width="2074" height="1044" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_2326_6300"/>
+                        </filter>
+                    </defs>
+                </svg>`
+            )
+        }
+
     }
         
 

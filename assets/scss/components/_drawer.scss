@@ -10,6 +10,8 @@
     pointer-events: none;
     z-index: 99999;
     overflow: auto;
+    opacity: 0;
+    visibility: hidden;
     @include transition(.5s, ease, transform, opacity);
     will-change: transform, opacity;
     &[data-drawer="top"] {
@@ -26,10 +28,14 @@
         transform: translate3d(0, 100%, 0);
     }
     &[data-drawer="left"] {
-        
+        left: 0;
+        right: auto;
+        transform: translate3d(-100%, 0, 0);
     }
-    &.is-active {
+    &.is-active, &.is-open {
         pointer-events: auto;
         transform: translate3d(0, 0, 0);
+        opacity: 1;
+        visibility: visible;
     }
 }

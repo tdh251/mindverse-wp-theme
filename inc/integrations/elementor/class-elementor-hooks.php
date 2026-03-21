@@ -20,6 +20,7 @@ use \Mindverse\Inc\Core\Hookable;
 
 use \Mindverse\Inc\Utils\Helpers;
 
+use Mindverse\Inc\Frontend\Assets;
 
 
 if ( !defined( 'ABSPATH' ) ) {
@@ -29,9 +30,9 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 class Elementor_Hooks extends Hookable {
-
-    public function __construct() {
-
+    private $assets;
+    public function __construct( Assets $assets_instance ) {
+        $this->assets = $assets_instance;
         $this->add_action( 'init', 'ensure_cpt_support');
 
         $this->add_action( 'elementor/preview/enqueue_styles', 'editor_preview_style' );
@@ -70,9 +71,9 @@ class Elementor_Hooks extends Hookable {
 
 
     protected function editor_preview_generate_global_inline_styles() {
-        $theme_colors     = mindverse()->assets->get_style_config( 'theme_colors' );
-        $link_colors      = mindverse()->assets->get_style_config( 'link' );
-        $theme_typography = mindverse()->assets->get_style_config( 'theme_typography' );
+        $theme_colors     = $this->assets->get_style_config( 'theme_colors' );
+        $link_colors      = $this->assets->get_style_config( 'link' );
+        $theme_typography = $this->assets->get_style_config( 'theme_typography' );
 
         ob_start();
         echo '.elementor-edit-area-active {';

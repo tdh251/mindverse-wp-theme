@@ -144,7 +144,7 @@ class Layout {
             $page = '404_page';
             $title = $this->options->get_option( $page.'_title', 'Page Not Found' );
             $note = $this->options->get_option( $page.'_note', 'Oops! The page you are looking for does not exist. It might have been moved or deleted.' );
-        } elseif ( is_shop() ) {
+        } elseif ( class_exists( 'Woocommerce' ) && is_shop() ) {
             $page = 'shop';
             $title = $this->options->get_option( $page.'_title', 'Shop' );
             $note = $this->options->get_option( $page.'_note', '' );
@@ -347,7 +347,7 @@ class Layout {
             $title = $this->options->get_option( $page.'_title', 'Page Not Found' );
         } elseif( is_archive() ) {
             $title = get_the_archive_title();
-            if ( is_shop() ) {
+            if ( class_exists( 'Woocommerce' ) && is_shop() ) {
                 $title = $this->options->get_option( 'shop_title', 'Shop' );
             }
         } elseif ( is_search() ) {
@@ -375,7 +375,7 @@ class Layout {
         } elseif( is_404() ) {
             $page = '404_page';
             $note = $this->options->get_option( '404_page_note', 'Oops! The page you are looking for does not exist. It might have been moved or deleted.' );
-        }elseif( is_shop() ) {
+        }elseif( class_exists( 'Woocommerce' ) && is_shop() ) {
             $note = $this->options->get_option( 'shop_note', '' );
         }else {
             $page = 'page';

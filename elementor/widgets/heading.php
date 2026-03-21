@@ -615,6 +615,31 @@ class Heading extends Mindverse_Widget_Base {
                 '{{WRAPPER}} .heading .heading-title .highlight-typing' => 'color: {{VALUE}};',
             ]
         ]);
+        $this->group_background([
+			'name' => 'title_typing_fill',
+			'selector' => '{{WRAPPER}} .heading .heading-title .highlight-typing',
+			'fields_options' => [
+				'background' => [
+					'label' => __( 'Text Fill', 'mindverse' ),
+				],				
+				'color' => [
+					'label' => __( 'Text Color', 'mindverse' ),
+					'selectors' => [
+						'{{WRAPPER}} .heading .heading-title .highlight-typing' => 'color: {{VALUE}};',
+					],
+				],
+				'image' => [
+					'selectors' => [
+						'{{WRAPPER}} .heading .heading-title .highlight-typing' => 'background-image: url("{{URL}}"); -webkit-background-clip: text; background-clip: text; color: transparent;',
+					],
+				],
+				'color_b' => [
+					'selectors' => [
+						'{{WRAPPER}} .heading .heading-title .highlight-typing' => '-webkit-background-clip: text; background-clip: text; color: transparent;',
+					],
+				],
+			],
+		]);
         $this->end_controls_section();
     }
 

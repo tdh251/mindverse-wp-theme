@@ -1,5 +1,11 @@
 @use '../../../assets/scss/core' as *;
 
+.woocommerce {
+    img {
+        object-fit: contain;
+    }
+}
+
 .woocommerce-shop {
     .content-area {
         .content-header {
@@ -133,8 +139,44 @@
 .product {
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    &-thumbnail {
+    &:hover {
+        .actions {
+            .button {
+                scale: 1;
+                opacity: 1;
+            }
+        }
+    }
+    .actions {
+        position: absolute;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 10px;
+        top: 15px;
+        right: 15px;
+        z-index: 11;
+        .button {
+            @include round-box(46px);
+            color: #FFF;
+            background-color: #060F16;
+            scale: 1.15;
+            opacity: 0;
+            padding: 0 !important;
+            font-size: 18px;
+            &::after, &::before {
+                display: none;
+            }
+            &:hover {
+                background-color: #A8FFBB;
+                color: #060F16;
+            }
+            svg {
+                width: 16px;
+                height: auto;
+            }
+        }
+    }
+    .product-thumbnail {
         overflow: hidden;
         @include d-flex(null, center, center);
         padding: 30px 50px;
@@ -143,6 +185,7 @@
         background-color: #FFF;
         position: relative;
         aspect-ratio: 452 / 493;
+        margin-bottom: 22px;
         > a {
             position: absolute;
             inset: 0;
@@ -165,9 +208,11 @@
         @include d-flex(30px, center);
         row-gap: 5px;
         padding-right: 13px;
+        justify-content: space-between;
         @media #{$max-lg} {
             align-items: stretch;
             flex-direction: column;
+            padding: 0;
         }
     }
     &-title {
@@ -214,5 +259,8 @@
                 }
             }
         }
+    }
+    .star-rating  {
+        margin-top: 10px;
     }
 }

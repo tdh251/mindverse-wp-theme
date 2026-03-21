@@ -48,6 +48,10 @@
 /** Woocomerce */
 @use '../../woocommerce/assets/scss/reset.scss' as wooReset;
 @use '../../woocommerce/assets/scss/shop.scss';
+@use '../../woocommerce/assets/scss/single_product.scss';
+@use '../../woocommerce/assets/scss/cart.scss';
+@use '../../woocommerce/assets/scss/checkout.scss';
+@use '../../woocommerce/assets/scss/other.scss' as wooOther;
 
 /** Admin */
 @use 'admin.scss';

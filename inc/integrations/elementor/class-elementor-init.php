@@ -2,15 +2,15 @@
 namespace Mindverse\Inc\Integrations\Elementor;
 
 use Mindverse\Inc\Core\Hookable;
+use Mindverse\Inc\Frontend\Assets;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 class Elementor_Init extends Hookable {
-
-    public function __construct() {
-        new Elementor_Hooks();
+    public function __construct( Assets $assets_instance ) {
+        new Elementor_Hooks( $assets_instance );
         $this->add_action( 'elementor/widgets/register', 'load_and_register_widgets' );
         $this->add_action( 'elementor/elements/elements_registered', 'load_and_register_elements' );
 

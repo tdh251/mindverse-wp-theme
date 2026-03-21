@@ -18,6 +18,7 @@ class Customize extends Hookable {
 	public function __construct( Options $options_instance  ) {
 		$this->options = $options_instance;
 		add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+		$this->add_filter( 'wp_kses_allowed_html', 'allow_svg_in_wp_kses_post', 10, 2 );
 		$this->add_action( 'pre_get_posts', 'custom_search_query' );
 		$this->add_action('delete_attachment', 'delete_custom_cropped_images');
 		$this->add_filter( 'body_class', 'body_classes' );
@@ -40,7 +41,7 @@ class Customize extends Hookable {
 		$sidebar_pos_class = mindverse()->get_theme_option('blog_sidebar_mode', 'none');
 		if( is_singular('post') ) {
 			$sidebar_pos_class = mindverse()->get_theme_option('single_post_sidebar_mode', 'none');
-		}elseif ( is_shop() ) {
+		}elseif ( class_exists( 'Woocommerce' ) && is_shop() ) {
 			$sidebar_pos_class = mindverse()->get_theme_option('shop_sidebar_mode', 'none');
 		}
 		if( isset( $_GET['sidebar'] ) ) {
@@ -160,5 +161,95 @@ class Customize extends Hookable {
 			<?php if ( 'div' != $args['style'] ) : ?>
 			</div>
 		<?php endif;
+	}
+
+	function allow_svg_in_wp_kses_post( $tags, $context ) {
+		if ( $context !== 'post' ) {
+			return $tags;
+		}
+
+		$tags['svg'] = array(
+			'class' => true,
+			'xmlns' => true,
+			'width' => true,
+			'height' => true,
+			'viewbox' => true,
+			'viewBox' => true,
+			'fill' => true,
+			'stroke' => true,
+			'role' => true,
+			'aria-hidden' => true,
+			'aria-labelledby' => true,
+			'focusable' => true,
+		);
+
+		$tags['path'] = array(
+			'd' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+			'stroke-linecap' => true,
+			'stroke-linejoin' => true,
+			'transform' => true,
+		);
+
+		$tags['g'] = array(
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+			'transform' => true,
+		);
+
+		$tags['circle'] = array(
+			'cx' => true,
+			'cy' => true,
+			'r' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		);
+
+		$tags['rect'] = array(
+			'x' => true,
+			'y' => true,
+			'width' => true,
+			'height' => true,
+			'rx' => true,
+			'ry' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		);
+
+		$tags['line'] = array(
+			'x1' => true,
+			'y1' => true,
+			'x2' => true,
+			'y2' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		);
+
+		$tags['polyline'] = array(
+			'points' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		);
+
+		$tags['polygon'] = array(
+			'points' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		);
+
+		$tags['defs'] = array();
+		$tags['clippath'] = array(
+			'id' => true,
+		);
+		$tags['title'] = array();
+
+		return $tags;
 	}
 }
