@@ -29,7 +29,7 @@
 									name="shipping_method[<?php echo esc_attr( $index ); ?>]"
 									data-index="<?php echo esc_attr( $index ); ?>"
 									id="<?php echo esc_attr( $input_id ); ?>"
-									value="<?php echo $method_value; ?>"
+									value="<?php echo esc_attr($method_value); ?>"
 									class="shipping_method"
 									<?php checked( $method->id, $chosen_method ); ?>
 								/>
@@ -51,7 +51,7 @@
 									name="shipping_method[<?php echo esc_attr( $index ); ?>]"
 									data-index="<?php echo esc_attr( $index ); ?>"
 									id="<?php echo esc_attr( $input_id ); ?>"
-									value="<?php echo $method_value; ?>"
+									value="<?php echo esc_attr($method_value); ?>"
 									class="shipping_method"
 								/>
 
@@ -85,15 +85,15 @@
 					<?php
 					if ( $formatted_destination ) {
 						printf(
-							esc_html__( 'Shipping to %s.', 'woocommerce' ) . ' ',
+							esc_html__( 'Shipping to %s.', 'mindverse' ) . ' ',
 							'<strong>' . esc_html( $formatted_destination ) . '</strong>'
 						);
-						$calculator_text = esc_html__( 'Change address', 'woocommerce' );
+						$calculator_text = esc_html__( 'Change address', 'mindverse' );
 					} else {
 						echo wp_kses_post(
 							apply_filters(
 								'woocommerce_shipping_estimate_html',
-								__( 'Shipping options will be updated during checkout.', 'woocommerce' )
+								__( 'Shipping options will be updated during checkout.', 'mindverse' )
 							)
 						);
 					}
@@ -108,14 +108,14 @@
 				echo wp_kses_post(
 					apply_filters(
 						'woocommerce_shipping_not_enabled_on_cart_html',
-						__( 'Shipping costs are calculated during checkout.', 'woocommerce' )
+						__( 'Shipping costs are calculated during checkout.', 'mindverse' )
 					)
 				);
 			} else {
 				echo wp_kses_post(
 					apply_filters(
 						'woocommerce_shipping_may_be_available_html',
-						__( 'Enter your address to view shipping options.', 'woocommerce' )
+						__( 'Enter your address to view shipping options.', 'mindverse' )
 					)
 				);
 			}
@@ -127,7 +127,7 @@
 			echo wp_kses_post(
 				apply_filters(
 					'woocommerce_no_shipping_available_html',
-					__( 'There are no shipping options available.', 'woocommerce' )
+					__( 'There are no shipping options available.', 'mindverse' )
 				)
 			);
 			?>
@@ -139,13 +139,13 @@
 				apply_filters(
 					'woocommerce_cart_no_shipping_available_html',
 					sprintf(
-						esc_html__( 'No shipping options were found for %s.', 'woocommerce' ) . ' ',
+						esc_html__( 'No shipping options were found for %s.', 'mindverse' ) . ' ',
 						'<strong>' . esc_html( $formatted_destination ) . '</strong>'
 					),
 					$formatted_destination
 				)
 			);
-			$calculator_text = esc_html__( 'Enter a different address', 'woocommerce' );
+			$calculator_text = esc_html__( 'Enter a different address', 'mindverse' );
 			?>
 
 		<?php endif; ?>

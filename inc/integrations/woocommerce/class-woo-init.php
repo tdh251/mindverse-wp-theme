@@ -11,7 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Woo_Init {
     private $version;
     public function __construct( Options $options_instance ) {
-        error_log( 'WOO_Init instantiated' );
 
         $this->version = Helpers::get_theme_version();
 

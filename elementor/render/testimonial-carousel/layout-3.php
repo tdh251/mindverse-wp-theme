@@ -19,12 +19,12 @@ $box_gradient_class = !empty( $settings['box_background_color_b'] ) ||
                     !empty( $settings['box_hover_background_image'] ) ? ' box-gradient' : '';
 $entrance_animation = ( empty( $settings['entrance_animation_lib'] ) && !empty( $settings['entrance_animation'] ) ) ? ' '.$settings['entrance_animation'] : ''; 
 ?>
-<div class="carousel testimonial-carousel" data-layout="3">
+<div class="carousel testimonial-carousel<?php echo esc_attr( $entrance_animation ); ?>" data-layout="3">
     <div class="carousel-container swiper<?php echo esc_attr($swiper_boxshadow); ?>" data-swiper = "<?php echo esc_attr($swiper_settings); ?>">
         <div class="carousel-inner swiper-wrapper">
             <?php foreach($settings['layout3_items'] as $i => $item) : 
 
-                $this->add_render_attribute('item_wrapper_'.$i, 'class', 'carousel-item swiper-slide elementor-repeater-item-'.$item['_id'] .$entrance_animation );
+                $this->add_render_attribute('item_wrapper_'.$i, 'class', 'carousel-item swiper-slide elementor-repeater-item-'.$item['_id'] );
 
                 $inner_class = $item['item_layout'] === 'video' ? ' testimonial-video' : '';
                 $link_attrs = Elementor_Helpers::get_link_attrs($item['link']);
@@ -32,6 +32,8 @@ $entrance_animation = ( empty( $settings['entrance_animation_lib'] ) && !empty( 
                 <div <?php pxl_print_html( $this->get_render_attribute_string('item_wrapper_'.$i) ); ?>>
                     <div class="testimonial<?php echo esc_attr($box_gradient_class); ?>">
                         <div class="testimonial-inner<?php echo esc_attr($inner_class); ?>">
+                            <div class="overlay"></div>
+
                             <?php if( $item['item_layout'] === 'video' ) : ?>
                                 <a class="button button-play-video" <?php pxl_print_html($link_attrs); ?> data-type="play">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">

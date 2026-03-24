@@ -3,8 +3,6 @@
 .gitignore export-ignore
 .git export-ignore
 
-
-
 # /assets/scss export-ignore
 # /assets/css/style.min.css.map export-ignore
 # /woocommerce/assets/scss export-ignore

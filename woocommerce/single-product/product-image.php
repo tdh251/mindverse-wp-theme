@@ -164,7 +164,7 @@ $wrapper_classes = array(
 		<div class="custom-product-gallery__placeholder">
 			<img
 				src="<?php echo esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ); ?>"
-				alt="<?php echo esc_attr__( 'Awaiting product image', 'woocommerce' ); ?>"
+				alt="<?php echo esc_attr__( 'Awaiting product image', 'mindverse' ); ?>"
 				class="wp-post-image"
 			/>
 		</div>

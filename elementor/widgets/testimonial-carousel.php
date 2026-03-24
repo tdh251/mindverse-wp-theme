@@ -1158,7 +1158,7 @@ class Testimonial_Carousel extends Mindverse_Widget_Base {
             'name' => 'style_shape_blur_section',
             'label' => __('Overlay', 'mindverse'),
             'condition' => [
-                'layout' => ['4', '5'],
+                'layout' => ['3', '4', '5'],
             ]
         ]);
         // Size Controls

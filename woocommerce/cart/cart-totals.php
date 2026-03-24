@@ -2,13 +2,13 @@
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2><?php esc_html_e( 'Cart total', 'woocommerce' ); ?></h2>
+	<h2><?php esc_html_e( 'Cart total', 'mindverse' ); ?></h2>
 
 	<div class="shop_table shop_table_responsive cart-totals-table">
 
 		<div class="cart-subtotal cart-totals-table__item">
-			<div class="label"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></div>
-			<div class="value" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
+			<div class="label"><?php esc_html_e( 'Subtotal', 'mindverse' ); ?></div>
+			<div class="value" data-title="<?php esc_attr_e( 'Subtotal', 'mindverse' ); ?>">
 				<?php wc_cart_totals_subtotal_html(); ?>
 			</div>
 		</div>
@@ -35,8 +35,8 @@
 		<?php elseif ( WC()->cart->needs_shipping() && 'yes' === get_option( 'woocommerce_enable_shipping_calc' ) ) : ?>
 
 			<div class="shipping cart-totals-table__item">
-				<div class="label"><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></div>
-				<div class="value" data-title="<?php esc_attr_e( 'Shipping', 'woocommerce' ); ?>">
+				<div class="label"><?php esc_html_e( 'Shipping', 'mindverse' ); ?></div>
+				<div class="value" data-title="<?php esc_attr_e( 'Shipping', 'mindverse' ); ?>">
 					<?php woocommerce_shipping_calculator(); ?>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 
 			if ( WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping() ) {
 				$estimated_text = sprintf(
-					' <small>' . esc_html__( '(estimated for %s)', 'woocommerce' ) . '</small>',
+					' <small>' . esc_html__( '(estimated for %s)', 'mindverse' ) . '</small>',
 					WC()->countries->estimated_for_prefix( $taxable_address[0] ) . WC()->countries->countries[ $taxable_address[0] ]
 				);
 			}
@@ -95,8 +95,8 @@
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
 		<div class="order-total cart-totals-table__item">
-			<div class="label"><?php esc_html_e( 'Total', 'woocommerce' ); ?></div>
-			<div class="value" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
+			<div class="label"><?php esc_html_e( 'Total', 'mindverse' ); ?></div>
+			<div class="value" data-title="<?php esc_attr_e( 'Total', 'mindverse' ); ?>">
 				<?php wc_cart_totals_order_total_html(); ?>
 			</div>
 		</div>

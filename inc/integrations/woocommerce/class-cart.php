@@ -113,7 +113,7 @@ class Cart {
                 </button>
             </div>
             <div class="cart-drawer__body" id="cartDrawerContent">
-                <?php echo $this->render_cart_content(); ?>
+                <?php pxl_print_html( $this->render_cart_content() ); ?>
             </div>
             <div class="cart-drawer__footer">
                 <div class="cart-total">

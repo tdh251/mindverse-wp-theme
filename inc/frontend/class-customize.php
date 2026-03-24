@@ -63,7 +63,7 @@ class Customize extends Hookable {
 		$cropped_files = get_post_meta($attachment_id, '_custom_cropped_files', true);
 
 		if (!is_array($cropped_files) || empty($cropped_files)) {
-			error_log("ℹ️ No cropped images found for ID: {$attachment_id}");
+			error_log("ℹ No cropped images found for ID: {$attachment_id}");
 			return;
 		}
 
@@ -105,15 +105,6 @@ class Customize extends Hookable {
 			// Final normalize
 			$file_path = wp_normalize_path($file_path);
 
-			// if (file_exists($file_path)) {
-			// 	if (@unlink($file_path)) {
-			// 		error_log("🧹 Deleted cropped image: {$file_path}");
-			// 	} else {
-			// 		error_log("⚠️ Could not unlink (permission?): {$file_path}");
-			// 	}
-			// } else {
-			// 	error_log("⚠️ File not found: {$file_path}");
-			// }
 		}
 		delete_post_meta($attachment_id, '_custom_cropped_files');
 	}

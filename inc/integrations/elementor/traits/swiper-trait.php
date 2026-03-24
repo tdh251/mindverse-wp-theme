@@ -209,7 +209,7 @@ trait Swiper_Trait {
             'name' => 'slide_opacity',
             'label' => __('Slide Opacity', 'mindverse'),
             'selectors' => [
-                '{{WRAPPER}} .carousel .carousel-container .carousel-item' => 'opacity: {{SIZE}};'
+                '{{WRAPPER}} .carousel .carousel-container .carousel-item' => 'opacity: {{SIZE}} !important;'
             ],
         ]);
         // NAVIGATION ELEMENTS

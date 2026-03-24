@@ -34,9 +34,9 @@
         windowWidth = $(window).width();
         windowHeight = $(window).height();
         setTimeout(function () {  
-            Mindverse.interactions.sticky();
             Mindverse.events.initSmoothScroll();
             Mindverse.events.textAnimation();
+            Mindverse.interactions.sticky();
         }, 300)
         $('body').imagesLoaded().done( function( instance ) {
             Mindverse.interactions.scrollingEffects();
@@ -415,14 +415,23 @@
                     ease: "none",
                 };
 
-                if( customSettings.name  ) {
-                    let distanceX = $selector.outerWidth() - $selector.parent().outerWidth();
-                    if( customSettings.name == 'moveToLeft' ) {
-                        customSettings.x = -Math.abs(distanceX);
-                    }else if( customSettings.name == 'moveToRight' ) {
-                        customSettings.x = Math.abs(distanceX);
+                if (customSettings.name) {
+                    const $container = $selector.parent();
+                    const selectorWidth = $selector.outerWidth();
+                    const containerWidth = $container.outerWidth();
+                    const distanceX = selectorWidth - containerWidth;
+
+                    if (distanceX <= 0) {
+                        delete customSettings.name;
+                        customSettings.x = 0;
+                    } else {
+                        if (customSettings.name === 'moveToLeft') {
+                            customSettings.x = -distanceX;
+                        } else if (customSettings.name === 'moveToRight') {
+                            customSettings.x = distanceX;
+                        }
+                        delete customSettings.name;
                     }
-                    delete customSettings.name;
                 }
 
                 if( customSettings.scrollTrigger ) {
@@ -480,44 +489,53 @@
             let isNumberString = (value) => {
                 return value !== '' && !isNaN(value);
             } 
-            $selectors.each(function() {
-                const $selector = $(this);
-                const settings = $selector.data('sticky-settings') ?? {};
-                const $parent = ( settings.trigger && settings.trigger !== '' ) ? $(settings.trigger) : $selector.parent();
-                const screen = settings.breakOn ?? 0;
-                if( breakOnScreen( screen ) ) {
-                    return;
-                }
-                let getScrollDistance = () => {
-                    if( isNumberString(settings.trigger) ) {
-                        return parseFloat(settings.trigger);
+            let handler = ( $elements ) => {
+                $elements.each(function() {
+                    const $selector = $(this);
+                    const settings = $selector.data('sticky-settings') ?? {};
+                    const $parent = ( settings.trigger && settings.trigger !== '' ) ? $(settings.trigger) : $selector.parent();
+                    const screen = settings.breakOn ?? 0;
+                    if( breakOnScreen( screen ) ) {
+                        return;
                     }
-                    const parentPaddingBottom = parseFloat($parent.css('padding-bottom')) || 0;
-                    const selectorTop = $selector.offset().top;
-                    const parentTop   = $parent.offset().top;
-                    return $parent.outerHeight() 
-                        - $selector.outerHeight() 
-                        - (selectorTop - parentTop) - parentPaddingBottom;
-                };
-                let position = settings.position ?? 'top';
-                let offset = settings.offset ?? 30;
-                let triggerObj = {
-                    trigger: $selector,   
-                    start: `top top+=${offset}px`,     
-                    end: () => `+=${getScrollDistance()}`,
-                    pin: true,             
-                    pinSpacing: settings.spacing ?? false,      
-                    markers: false,         
-                    invalidateOnRefresh: true,
-                    scub: 2,
-                }
-                if( position == 'bottom' ) {
-                    triggerObj.start = `bottom bottom-=${offset}`;
-                    triggerObj.end = `bottom bottom-=${offset}`;
-                    triggerObj.endTrigger = $parent
-                }
-                ScrollTrigger.create(triggerObj)
-            });
+                    let getScrollDistance = () => {
+                        if( isNumberString(settings.trigger) ) {
+                            return parseFloat(settings.trigger);
+                        }
+                        const parentPaddingBottom = parseFloat($parent.css('padding-bottom')) || 0;
+                        const selectorTop = $selector.offset().top;
+                        const parentTop   = $parent.offset().top;
+                        return $parent.outerHeight() 
+                            - $selector.outerHeight() 
+                            - (selectorTop - parentTop) - parentPaddingBottom;
+                    };
+                    let position = settings.position ?? 'top';
+                    let offset = settings.offset ?? 30;
+                    let triggerObj = {
+                        trigger: $selector,   
+                        start: `top top+=${offset}px`,     
+                        end: () => `+=${getScrollDistance()}`,
+                        pin: true,             
+                        pinSpacing: settings.spacing ?? false,      
+                        markers: false,         
+                        invalidateOnRefresh: true,
+                        scub: 2,
+                    }
+                    if( position == 'bottom' ) {
+                        triggerObj.start = `bottom bottom-=${offset}`;
+                        triggerObj.end = `bottom bottom-=${offset}`;
+                        triggerObj.endTrigger = $parent
+                    }
+                    ScrollTrigger.create(triggerObj)
+                });
+            }
+            if( $selectors.find('img').length ) {
+                $($selectors).imagesLoaded().done( function( instance ) { 
+                    handler( $selectors )
+                })
+                return;
+            }
+            handler( $selectors );
         },
         priceCardActive: function() {
             $('.price-table').on('mouseenter', '.grid-item', function() {
@@ -613,12 +631,26 @@
                 smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
             });
         },
-        initNiceSelect: function () {  
-            const $selectors = $('select');
-            if( !$selectors.length ) {
+        initNiceSelect: function () {
+            if (typeof $.fn.niceSelect !== 'function') {
                 return;
             }
-            $selectors.niceSelect();
+
+            const $selectors = $('select:not(#billing_country):not(#billing_state):not(#shipping_state):not(#shipping_country)');
+
+            if (!$selectors.length) {
+                return;
+            }
+
+            $selectors.each(function () {
+                const $select = $(this);
+
+                if ($select.next('.nice-select').length) {
+                    return;
+                }
+
+                $select.niceSelect();
+            });
         },
         updateTranslateZTo3DFlip: function() {
             const $selectors = $('[data-hover="text-flip-3d"]');
@@ -812,7 +844,7 @@
                     $selector.data('text-animation-initialized', true);
                 });
             }
-                        if (document.fonts && document.fonts.ready) {
+            if (document.fonts && document.fonts.ready) {
                 document.fonts.ready.then(runAnimation);
             } else {
                 runAnimation();

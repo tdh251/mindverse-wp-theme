@@ -332,6 +332,7 @@
         padding: 12px 13px 30px;
         border-radius: 27px;
         background-color: #FFF;
+        overflow: hidden;
         &:hover, &.is-active {
             .price-overview {
                 &::before {
@@ -756,6 +757,7 @@
         border-width: thin;
         border-style: solid;
         border-color: rgba($color: #FFF, $alpha: 0);
+        overflow: hidden;
         &.is-active, &:hover {
             border-color: rgba($color: #FFF, $alpha: .08);
             .price-button {
@@ -847,7 +849,7 @@
     .grid {
         --mv-spacing-inline: 20px;
         --mv-spacing-block: 0;
-        --mv-grid-size: 33.3333333%;
+        --mv-grid-size: 33.33331%;
         padding-inline: calc( var(--mv-spacing-inline) / 2 );
         @media #{$max-md} {
             --mv-grid-size: 50%;

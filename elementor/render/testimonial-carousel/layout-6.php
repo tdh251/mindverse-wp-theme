@@ -27,12 +27,12 @@ $entrance_animation = ( empty( $settings['entrance_animation_lib'] ) && !empty( 
 $img_w = $settings['img_size']['width'] ?? null;
 $img_h = $settings['img_size']['height'] ?? null;
 ?>
-<div class="carousel testimonial-carousel" data-layout="6">
+<div class="carousel testimonial-carousel<?php echo esc_attr( $entrance_animation ); ?>" data-layout="6">
     <div class="carousel-container swiper<?php echo esc_attr($swiper_boxshadow); ?>" data-swiper = "<?php echo esc_attr($swiper_settings); ?>">
         <div class="carousel-inner swiper-wrapper">
             <?php foreach($contents as $i => $item) : 
 
-                $this->add_render_attribute('item_wrapper_'.$i, 'class', 'carousel-item swiper-slide elementor-repeater-item-'.$item['_id'] . $entrance_animation );
+                $this->add_render_attribute('item_wrapper_'.$i, 'class', 'carousel-item swiper-slide elementor-repeater-item-'.$item['_id'] );
                 $icon = isset( $icons[$i]['own_icon'] ) && !empty( $icons[$i]['own_icon']['value'] ) ? $icons[$i]['own_icon'] : $settings['icon'];
                 $content = $contents[$i]['content'] ?? '';
                 $user_name = $users[$i]['name'] ?? '';

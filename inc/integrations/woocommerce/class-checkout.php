@@ -25,7 +25,7 @@ class Checkout {
     }
 
     public function order_button_text() {
-        return __('Place order now');
+        return __('Place order now', 'mindverse');
     }
 
     public function checkout_before_order_review_heading() {

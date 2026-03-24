@@ -14,10 +14,10 @@ do_action( 'woocommerce_before_cart' );
 
 $cart_headers = array(
 	'thumb'    => '',
-	'product'  => esc_html__( 'Product', 'woocommerce' ),
-	'price'    => esc_html__( 'Price', 'woocommerce' ),
-	'quantity' => esc_html__( 'Quantity', 'woocommerce' ),
-	'subtotal' => esc_html__( 'Subtotal', 'woocommerce' ),
+	'product'  => esc_html__( 'Product', 'mindverse' ),
+	'price'    => esc_html__( 'Price', 'mindverse' ),
+	'quantity' => esc_html__( 'Quantity', 'mindverse' ),
+	'subtotal' => esc_html__( 'Subtotal', 'mindverse' ),
 	'remove'   => '',
 );
 ?>
@@ -148,7 +148,7 @@ $cart_headers = array(
 								echo wp_kses_post(
 									apply_filters(
 										'woocommerce_cart_item_backorder_notification',
-										'<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>',
+										'<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'mindverse' ) . '</p>',
 										$product_id
 									)
 								);
@@ -207,7 +207,7 @@ $cart_headers = array(
 								sprintf(
 									'<a role="button" href="%s" class="remove remove-cart-item" aria-label="%s" data-product_id="%s" data-product_sku="%s"></a>',
 									esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-									esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
+									esc_attr( sprintf( __( 'Remove %s from cart', 'mindverse' ), wp_strip_all_tags( $product_name ) ) ),
 									esc_attr( $product_id ),
 									esc_attr( $_product->get_sku() )
 								),
@@ -229,22 +229,22 @@ $cart_headers = array(
 		<div class="cart-table__actions">
 			<?php if ( wc_coupons_enabled() ) : ?>
 				<div class="coupon">
-					<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+					<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'mindverse' ); ?></label>
 					<input
 						type="text"
 						name="coupon_code"
 						class="input-text"
 						id="coupon_code"
 						value=""
-						placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>"
+						placeholder="<?php esc_attr_e( 'Coupon code', 'mindverse' ); ?>"
 					/>
 					<button
 						type="submit"
 						class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
 						name="apply_coupon"
-						value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"
+						value="<?php esc_attr_e( 'Apply coupon', 'mindverse' ); ?>"
 					>
-						<?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?>
+						<?php esc_html_e( 'Apply coupon', 'mindverse' ); ?>
 					</button>
 					<?php do_action( 'woocommerce_cart_coupon' ); ?>
 				</div>
@@ -254,9 +254,9 @@ $cart_headers = array(
 				type="submit"
 				class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
 				name="update_cart"
-				value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"
+				value="<?php esc_attr_e( 'Update cart', 'mindverse' ); ?>"
 			>
-				<?php esc_html_e( 'Update cart', 'woocommerce' ); ?>
+				<?php esc_html_e( 'Update cart', 'mindverse' ); ?>
 			</button>
 
 			<?php do_action( 'woocommerce_cart_actions' ); ?>

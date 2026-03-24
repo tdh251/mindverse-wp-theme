@@ -519,6 +519,27 @@
     height: 150px;
     width: 100%;
     background-color: #000;
+    &.blur {
+        background: radial-gradient(
+            ellipse at center,
+            color-mix(in srgb, var(--blur-color, #000) 90%, transparent) 0%,
+            color-mix(in srgb, var(--blur-color, #000) 60%, transparent) 25%,
+            color-mix(in srgb, var(--blur-color, #000) 25%, transparent) 50%,
+            color-mix(in srgb, var(--blur-color, #000) 5%, transparent) 70%,
+            transparent 80%
+        );
+    }
+    &.blur-2 {
+    background: radial-gradient(
+        ellipse at center,
+        color-mix(in srgb, var(--blur-color, #000) 100%, transparent) 0%,
+        color-mix(in srgb, var(--blur-color, #000) 90%, transparent) 15%,
+        color-mix(in srgb, var(--blur-color, #000) 70%, transparent) 35%,
+        color-mix(in srgb, var(--blur-color, #000) 40%, transparent) 60%,
+        color-mix(in srgb, var(--blur-color, #000) 15%, transparent) 80%,
+        transparent 100%
+    );
+    }
 }
 
 // Step List
@@ -1232,7 +1253,7 @@
                 box-shadow: 0 43.077px 86.154px -26.923px rgba(24, 29, 39, 0.12);
             }
             &-title {
-                color: #000;
+                color: var(--mv-heading-color);
                 text-align: center;
                 font-size: 20px;
                 font-weight: 600;
