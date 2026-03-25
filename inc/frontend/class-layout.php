@@ -602,4 +602,33 @@ class Layout {
             echo wp_kses( $pagination, $allowed_html );
         }
     }
+
+    /**
+     * Get Loader
+     */
+    public function get_site_loader() {
+        $enable_loader = (bool) $this->options->get_theme_option('site_loader', '');
+        if ( ! $enable_loader ) {
+            return '';
+        }
+
+        $loader_image = $this->options->get_theme_option('loader_logo', []);
+
+        ob_start();
+        ?>
+        <div id="siteLoader" class="site-loader">
+            <div class="loader-logo image">
+                <?php
+                if ( ! empty( $loader_image['id'] ) ) {
+                    echo wp_get_attachment_image( $loader_image['id'], 'full' );
+                } elseif ( ! empty( $loader_image['url'] ) ) {
+                    echo '<img src="' . esc_url( $loader_image['url'] ) . '" alt="Site Loader Logo">';
+                }
+                ?>
+            </div>
+        </div>
+        <?php
+        $loader_html = ob_get_clean();
+        echo wp_kses_post( $loader_html );
+    }
 }

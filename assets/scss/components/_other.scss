@@ -85,7 +85,7 @@
     right: 30px;
     background-color: var(--mv-primary-color);
     @include round-box(50px);
-    z-index: 999999;
+    z-index: 99999;
     scale: 0;
     transition: scale .5s ease;
     color: var(--mv-secondary-color, #000);

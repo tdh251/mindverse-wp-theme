@@ -1105,94 +1105,12 @@
             }
         }
         &:hover {
-            .show-case-box {
-                .show-case-button-group {
-                    opacity: 1;
-                    margin-top: 0;
-                }
+            .show-case-button-group {
+                opacity: 1;
+                margin-top: 0;
             }
         }
         .show-case {
-            &-box {
-                overflow: hidden;
-                position: relative;
-                margin-bottom: 15px;
-                @media #{$max-lg} {
-                    margin-bottom: 30px;
-                    padding: 10px 10px 0 10px;
-                }
-                @media #{$max-sm} {
-                    margin-bottom: 15px;
-                    border-radius: 25px;
-                    padding: 5px 5px 0 5px;
-                }
-                &-inner {
-                    overflow: hidden;
-                    position: relative;
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        width: 100%;
-                        height: 122px;
-                        background: linear-gradient(180deg, rgba(13, 11, 16, 0.00) 0%, #0C1E21 100%);
-                        pointer-events: none;
-                    }
-                    overflow: hidden;
-                    display: flex;
-                    flex-direction: column;
-                    padding: 20px 33px 0 33px;
-                    border-radius: 40px;
-                    border: thin solid rgba(255, 255, 255, 0.14);
-                    // background: linear-gradient(180deg, #1C2F41 0%, #060F16 100%);
-                    background: linear-gradient(180deg, rgba(28, 47, 65) 0%, rgba(6, 15, 22) 100%);
-                    @media #{$max-lg} {
-                        padding: 20px 20px 0 20px;
-                    }
-                    @media #{$max-sm} {
-                        padding: 20px 15px 0 15px;
-                        border-radius: 20px;
-                    }
-                }
-            }
-            &-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 15px 30px;
-                margin-bottom: 22px;
-            }
-            &-badge {
-                border-radius: 20px;
-                background: linear-gradient(270deg, #851ADC 0%, #DF2398 69.33%, #FF8FC2 100%);
-                box-shadow: 0 4px 20px 0 rgba(205, 48, 120, 0.49);
-                color: #FFF;
-                text-align: center;
-                font-size: 10px;
-                line-height: 25px;
-                letter-spacing: -0.28px;
-                padding-inline: 16px;
-            }
-            &-status {
-                @include d-inline-flex(8px);
-                .dot {
-                    @include round-box(12px);
-                    &-1 {
-                        background: #EE6A5F;
-                        box-shadow: 0 0 6.764px 0 #EC6D62 inset;
-                    }
-                    &-2 {
-                        background: #F5BD4F;
-                        box-shadow: 0 0 6.764px 0 #F5C451 inset;
-                    }
-                    &-3 {
-                        background: #58A942;
-                        box-shadow: 0 0 6.764px 0 #68CC58 inset;
-                    }
-                }
-            }
             &-button-group {
                 position: absolute;
                 bottom: 0;
@@ -1226,6 +1144,11 @@
             }
             &-image-group {
                 position: relative;
+                border: 15px solid rgba($color: #D5D7DA, $alpha: 1);
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 5px 55px 0 rgba(75, 83, 161, 0.15);
+                margin-bottom: 15px;
                 .show-case-image {
                     opacity: 0;
                     position: absolute;

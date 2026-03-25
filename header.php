@@ -8,6 +8,8 @@
 </head>
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+
+    <?php mindverse()->layout->get_site_loader(); ?>
     <?php 
 		$enableSmoothScroll =  (bool) mindverse()->get_option( 'smooth_scroll', '0' );
         if( $enableSmoothScroll ) {

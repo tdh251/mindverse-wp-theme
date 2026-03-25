@@ -31,6 +31,13 @@
     });
 
     $( window ).on( 'load', function() {
+        const $siteLoader = $('#siteLoader');
+        if( $siteLoader.length ) {
+            $siteLoader.find('.loader-logo').css('scale', 0);
+            setTimeout(function() {
+                $siteLoader.addClass('is-loaded');
+            }, 150)
+        }
         windowWidth = $(window).width();
         windowHeight = $(window).height();
         setTimeout(function () {  

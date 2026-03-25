@@ -161,15 +161,25 @@ class Redux_Theme_Options extends Hookable {
                     'default'  => '0',
                 ),
                 array(
-                    'id'       => 'mouse_move_animation',
-                    'type'     => 'button_set',
-                    'title'    => __('Mouse Move Animation', 'mindverse'),
-                    'options'  => [
-                        '1'    => __('On' , 'mindverse'),
-                        '0'    => __('Off', 'mindverse'),
+                    'id'       => 'loader_logo',
+                    'type'     => 'media',
+                    'title'    => esc_html__('Loader Logo', 'mindverse'),
+                    'default'  => [
+                        'url' => get_template_directory_uri() . '/assets/img/logo-icon.webp',
                     ],
-                    'default'  => '0',
+                    'url'      => false,
+                    'required' => ['site_loader', '=', '1'],
                 ),
+                // array(
+                //     'id'       => 'mouse_move_animation',
+                //     'type'     => 'button_set',
+                //     'title'    => __('Mouse Move Animation', 'mindverse'),
+                //     'options'  => [
+                //         '1'    => __('On' , 'mindverse'),
+                //         '0'    => __('Off', 'mindverse'),
+                //     ],
+                //     'default'  => '0',
+                // ),
                 array(
                     'id'       => 'smooth_scroll',
                     'type'     => 'button_set',

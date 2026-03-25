@@ -47,6 +47,22 @@ function mindverse_register_required_plugins() {
             'description' => esc_html__( 'Contact Form 7 can manage multiple contact forms, you can customize the form and the mail contents flexibly with simple markup', 'mindverse' ),
         ), 
 
+        array(
+            'name'               => esc_html__('WooCommerce', 'mindverse'),
+            'slug'               => "woocommerce",
+            'required'           => true,
+            'logo'        => $images . '/woo.png',
+            'description' => esc_html__( 'WooCommerce is the world’s most popular open-source eCommerce solution.', 'mindverse' ),
+        ),
+
+        array(
+            'name'               => esc_html__('WPC Smart Compare for WooCommerce', 'mindverse'),
+            'slug'               => "woo-smart-compare",
+            'required'           => false,
+            'logo'        => $images . '/woo-smart-compare.png',
+            'description' => esc_html__( 'WPC Smart Compare is an optimal solution that brings about beyond-expectation features for improving user experience and enhance the sales strategy on your online WooCommerce shop.', 'mindverse' ),
+
+        ),
     );
 
     $config = array(

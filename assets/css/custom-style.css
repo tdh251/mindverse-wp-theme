@@ -11,3 +11,18 @@
  * 
  * Note: Changes in this file will be preserved when updating the theme.
  */
+
+ .header-4-dark .pxl-mega-menu .show-case .show-case-title {
+    color: #000;
+ }
+
+ @media screen and (min-width: 1200px) {
+    .home-6-dark .header-menu .sub-menu.pxl-mega-menu , .home-6-dark .header-menu .sub-menu {
+        background-color: #161616;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .home-6-dark .header-menu.navigation-menu li > .sub-menu li > a {
+        color: #FFF;
+    }
+    
+}
