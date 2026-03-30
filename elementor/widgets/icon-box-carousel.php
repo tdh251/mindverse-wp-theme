@@ -61,11 +61,11 @@ class Icon_Box_Carousel extends Mindverse_Widget_Base {
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Icon Box 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/icon-box-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/icon-box-2.webp'),
                 ],
                 '3' => [
                     'title' => esc_attr__( 'Icon Box 3', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/icon-box-3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/icon-box-3.webp'),
                 ]
             ],
             'default' => '1',

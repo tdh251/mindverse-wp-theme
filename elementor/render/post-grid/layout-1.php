@@ -63,7 +63,7 @@ if( !empty( $settings['img_hover_style'] ) ) {
     if( $settings['img_hover_style'] === 'distortionTransition' ) {
         wp_enqueue_script('hoverjs');
         $display_args['displacement_img_url'] = content_url(
-            'default-assets/displacement/' . $settings['img_displacement'] . '.webp'
+            '/uploads/default-assets/displacement/' . $settings['img_displacement'] . '.webp'
         );
     }
 }

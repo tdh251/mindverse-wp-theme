@@ -75,23 +75,23 @@ class Price_Table extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Price Table 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Price Table 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-2.webp'),
                 ],
                 '3' => [
                     'title' => esc_attr__( 'Price Table 3', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-3.webp'),
                 ],
                 '4' => [
                     'title' => esc_attr__( 'Price Table 4', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-4.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-4.webp'),
                 ],
                 '5' => [
                     'title' => esc_attr__( 'Price Table 5', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-5.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-5.webp'),
                 ],
             ],
             'default' => '1',
@@ -120,11 +120,11 @@ class Price_Table extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Default', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-5.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-5.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Border Gradient', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-5_2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-5_2.webp'),
                 ],
             ],
             'default' => '1',
@@ -139,11 +139,11 @@ class Price_Table extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Default', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-2.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Border Gradient', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/price-table-2_2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/price-table-2_2.webp'),
                 ],
             ],
             'default' => '1',

@@ -57,7 +57,7 @@ class Team_Grid extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Team 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/team-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/team-1.webp'),
                 ],
             ],
             'default' => '1',

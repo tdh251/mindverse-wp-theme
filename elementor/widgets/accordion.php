@@ -55,15 +55,15 @@ class Accordion extends Mindverse_Widget_Base {
             'options' => [
                 '0' => [
                     'title' => esc_attr__( 'Layout Style Default', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/accordion_1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/accordion_1.webp'),
                 ],
                 '1' => [
                     'title' => esc_attr__( 'Layout Style 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/accordion_2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/accordion_2.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Layout Style 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/accordion_2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/accordion_2.webp'),
                 ],
             ],
             'default' => '0',

@@ -48,11 +48,11 @@ class Tabs extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Tabs 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/tabs-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/tabs-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Tabs 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/tabs-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/tabs-2.webp'),
                 ],
             ],
             'default' => '1',

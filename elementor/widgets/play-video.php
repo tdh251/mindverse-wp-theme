@@ -81,14 +81,14 @@ class Play_Video extends Mindverse_Widget_Base {
             'options' => [
                 'primary' => [
                     'title' => esc_attr__( 'Primary', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/btn-play-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/btn-play-1.webp'),
                 ],
                 'secondary' => [
                     'title' => esc_attr__( 'Secondary', 'mindverse' ),
                 ],
                 'third' => [
                     'title' => esc_attr__( 'Third', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/btn-play-3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/btn-play-3.webp'),
                 ],
                 '' => [
                     'title' => esc_attr__( 'Custom', 'mindverse' ),

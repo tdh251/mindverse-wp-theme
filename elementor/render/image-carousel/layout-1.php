@@ -20,7 +20,7 @@ if( !empty( $settings['img_hover_style'] ) ) {
     if( $settings['img_hover_style'] === 'distortionTransition' ) {
         wp_enqueue_script('hoverjs');
         $img_attrs['data-displacement'] = content_url(
-            'default-assets/displacement/' . $settings['img_displacement'] . '.webp'
+            '/uploads/default-assets/displacement/' . $settings['img_displacement'] . '.webp'
         );
     }
     if( $settings['img_hover_style'] === 'parallax' ) {

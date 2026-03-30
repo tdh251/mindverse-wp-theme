@@ -625,67 +625,67 @@ trait Controls_Trait {
                     'options' => [
                         '1' => [
                             'title' => esc_attr__( '1', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/1.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/1.webp'),
                         ],
                         '2' => [
                             'title' => esc_attr__( '2', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/2.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/2.webp'),
                         ],
                         '3' => [
                             'title' => esc_attr__( '3', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/3.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/3.webp'),
                         ],
                         '4' => [
                             'title' => esc_attr__( '4', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/4.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/4.webp'),
                         ],
                         '5' => [
                             'title' => esc_attr__( '5', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/5.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/5.webp'),
                         ],
                         '6' => [
                             'title' => esc_attr__( '6', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/6.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/6.webp'),
                         ],
                         '7' => [
                             'title' => esc_attr__( '7', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/7.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/7.webp'),
                         ],
                         '8' => [
                             'title' => esc_attr__( '8', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/8.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/8.webp'),
                         ],
                         '9' => [
                             'title' => esc_attr__( '9', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/9.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/9.webp'),
                         ],
                         '10' => [
                             'title' => esc_attr__( '10', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/10.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/10.webp'),
                         ],
                         '11' => [
                             'title' => esc_attr__( '11', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/11.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/11.webp'),
                         ],
                         '12' => [
                             'title' => esc_attr__( '12', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/12.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/12.webp'),
                         ],
                         '13' => [
                             'title' => esc_attr__( '13', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/13.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/13.webp'),
                         ],
                         '14' => [
                             'title' => esc_attr__( '14', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/14.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/14.webp'),
                         ],
                         '15' => [
                             'title' => esc_attr__( '14', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/15.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/15.webp'),
                         ],
                         '15' => [
                             'title' => esc_attr__( '14', 'mindverse' ),
-                            'image' => content_url('default-assets/displacement/16.webp'),
+                            'image' => content_url('/uploads/default-assets/displacement/16.webp'),
                         ],
                     ],
                     'default' => '13',

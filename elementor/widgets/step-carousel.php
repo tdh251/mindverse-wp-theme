@@ -53,11 +53,11 @@ class Step_Carousel extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Layot 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/step-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/step-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Layot 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/step-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/step-2.webp'),
                 ],
             ],
             'default' => '1',

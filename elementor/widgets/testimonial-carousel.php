@@ -71,31 +71,31 @@ class Testimonial_Carousel extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Testimonial 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Testimonial 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-2.webp'),
                 ],
                 '3' => [
                     'title' => esc_attr__( 'Testimonial 3', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-3.webp'),
                 ],
                 '4' => [
                     'title' => esc_attr__( 'Testimonial 4', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-4.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-4.webp'),
                 ],
                 '5' => [
                     'title' => esc_attr__( 'Testimonial 5', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-5.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-5.webp'),
                 ],
                 '6' => [
                     'title' => esc_attr__( 'Testimonial 6', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-6.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-6.webp'),
                 ],
                 '7' => [
                     'title' => esc_attr__( 'Testimonial 7', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/testimonial-7.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/testimonial-7.webp'),
                 ],
             ],
             'default' => '1',

@@ -67,11 +67,11 @@ class Post_Grid extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Post 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/post-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/post-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Career 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/career-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/career-1.webp'),
                 ],
             ],
             'default' => '1',
@@ -95,15 +95,15 @@ class Post_Grid extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Layout Style Default', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/post-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/post-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Layout Style 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/post-1_2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/post-1_2.webp'),
                 ],
                 '3' => [
                     'title' => esc_attr__( 'Layout Style 3', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/post-1_3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/post-1_3.webp'),
                 ],
             ],
             'default' => '1',

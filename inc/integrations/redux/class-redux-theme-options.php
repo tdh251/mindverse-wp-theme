@@ -1259,19 +1259,19 @@ class Redux_Theme_Options extends Hookable {
                     'default' => [
                         [
                             'user_social_name' => 'Facebook',
-                            'user_social_icon' => [ 'url' => content_url('default-assets/imgs/socials/facebook.png') ],
+                            'user_social_icon' => [ 'url' => content_url('/uploads/default-assets/imgs/socials/facebook.png') ],
                         ],
                         [
                             'user_social_name' => 'Twitter',
-                            'user_social_icon' => [ 'url' => content_url('default-assets/imgs/socials/twitter.png') ],
+                            'user_social_icon' => [ 'url' => content_url('/uploads/default-assets/imgs/socials/twitter.png') ],
                         ],
                         [
                             'user_social_name' => 'Instagram',
-                            'user_social_icon' => [ 'url' => content_url('default-assets/imgs/socials/instagram.png') ],
+                            'user_social_icon' => [ 'url' => content_url('/uploads/default-assets/imgs/socials/instagram.png') ],
                         ],
                         [
                             'user_social_name' => 'LinkedIn',
-                            'user_social_icon' => [ 'url' => content_url('default-assets/imgs/socials/linkedin.png') ],
+                            'user_social_icon' => [ 'url' => content_url('/uploads/default-assets/imgs/socials/linkedin.png') ],
                         ]
                     ]
                 )

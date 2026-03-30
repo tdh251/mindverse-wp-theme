@@ -61,19 +61,19 @@ class Feature_Card_Carousel extends Mindverse_Widget_Base {
             'options' => [
                 '1' => [
                     'title' => esc_attr__( 'Feature Card 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/feature-card-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/feature-card-1.webp'),
                 ],
                 '2' => [
                     'title' => esc_attr__( 'Feature Card 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/feature-card-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/feature-card-2.webp'),
                 ],
                 '3' => [
                     'title' => esc_attr__( 'Feature Card 3', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/feature-card-3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/feature-card-3.webp'),
                 ],
                 '4' => [
                     'title' => esc_attr__( 'Feature Card 4', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/feature-card-4.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/feature-card-4.webp'),
                 ],
             ],
             'default' => '1',

@@ -54,31 +54,31 @@ class Heading extends Mindverse_Widget_Base {
             'options' => [
                 'primary' => [
                     'title' => esc_attr__( 'Primary', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-primary.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-primary.webp'),
                 ],
                 'secondary' => [
                     'title' => esc_attr__( 'Secondary', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-secondary.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-secondary.webp'),
                 ],
                 'style-1' => [
                     'title' => esc_attr__( 'Style 1', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-style-1.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-style-1.webp'),
                 ],
                 'style-2' => [
                     'title' => esc_attr__( 'Style 2', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-style-2.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-style-2.webp'),
                 ],
                 'style-3' => [
                     'title' => esc_attr__( 'Style 3', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-style-3.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-style-3.webp'),
                 ],
                 'style-4' => [
                     'title' => esc_attr__( 'Style 4', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-style-4.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-style-4.webp'),
                 ],
                 'style-5' => [
                     'title' => esc_attr__( 'Style 5', 'mindverse' ),
-                    'image' => content_url('default-assets/layout/subtitle-style-5.webp'),
+                    'image' => content_url('/uploads/default-assets/layout/subtitle-style-5.webp'),
                 ],
                 '' => [
                     'title' => esc_attr__( 'Custom', 'mindverse' ),
