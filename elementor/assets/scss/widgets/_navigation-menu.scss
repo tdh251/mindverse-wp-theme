@@ -189,7 +189,7 @@
                 padding: 0;
                 overflow: hidden;
             }
-            &.submenu-reverse {
+            &:not(.pxl-mega-menu).submenu-reverse {
                 left: auto;
                 right: 0;
             }
