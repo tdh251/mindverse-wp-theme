@@ -210,7 +210,12 @@ class Navigation_Menu extends Mindverse_Widget_Base {
             'name' => 'main_menu_color_hover',
             'label' => __( 'Text Color', 'mindverse' ),
             'selectors' => [
-                '{{WRAPPER}} .navigation-menu > li > a:hover' => 'color: {{VALUE}}',
+                '{{WRAPPER}} .navigation-menu > li > a:hover, 
+                {{WRAPPER}} .navigation-menu > li.current-menu-item > a, 
+                {{WRAPPER}} .navigation-menu > li.current_page_item > a, 
+                {{WRAPPER}} .navigation-menu > li.current-menu-ancestor > a, 
+                {{WRAPPER}} .navigation-menu > li.current-menu-parent > a,
+                {{WRAPPER}} .navigation-menu > li > a.pxl-onepage-active' => 'color: {{VALUE}}',
             ],
         ]);
         // Background Hover
@@ -221,6 +226,12 @@ class Navigation_Menu extends Mindverse_Widget_Base {
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .navigation-menu > li > a.box-gradient > .menu-link-inner,
                             {{WRAPPER}} .navigation-menu > li > a .direction-item',
+                            // {{WRAPPER}} .navigation-menu > li > a:hover:not(.box-gradient), 
+                            // {{WRAPPER}} .navigation-menu li.current-menu-item > a:not(.box-gradient), 
+                            // {{WRAPPER}} .navigation-menu li.current_page_item > a:not(.box-gradient), 
+                            // {{WRAPPER}} .navigation-menu li.current-menu-ancestor > a:not(.box-gradient), 
+                            // {{WRAPPER}} .navigation-menu li.current-menu-parent > a:not(.box-gradient),
+                            // {{WRAPPER}} .navigation-menu li > a.pxl-onepage-active:not(.box-gradient)',
                 'fields_options' => [			
                     'color' => [
                         'selectors' => [

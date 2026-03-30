@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 class Autoloader {
+
     public function __construct() {
         spl_autoload_register( array( $this, 'load_class' ) );
     }
@@ -33,4 +34,5 @@ class Autoloader {
             require_once $path;
         }
     }
+    
 }

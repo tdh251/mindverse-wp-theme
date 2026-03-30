@@ -53,6 +53,11 @@ class Customize extends Hookable {
 		if( !empty( $sidebar_pos_class ) ) {
 			$classes[] .= 'sidebar-position-'.$sidebar_pos_class;
 		}
+		// $is_dark_mode = 
+		$is_dark_mode = isset( $_GET['dark'] ) || strpos( $_SERVER['REQUEST_URI'], 'dark' ) !== false;
+		if ( $is_dark_mode ) {
+			$classes[] = 'dark-page';
+		}
 		return $classes;
 	}
 

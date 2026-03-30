@@ -2,6 +2,13 @@
 
 $nav_menu = $settings['nav_menu'] ?? '';
 
+$primary_menu = mindverse()->get_singular_option('header_nav_menu', 0);
+
+
+if( $primary_menu && !empty( $primary_menu ) ) {
+    $nav_menu = $primary_menu;
+}
+    
 $menu_settings = [
     'menu_hover_style' => $settings['main_menu_hover_style'] ?? '',
     'submenu_hover_style' => $settings['submenu_hover_style'] ?? '',
@@ -24,7 +31,7 @@ add_filter('nav_menu_link_attributes', function($attrs, $item, $args, $depth) us
 }, 10, 4);
 
 mindverse()->layout->get_nav_menu([
-    'menu' =>  wp_get_nav_menu_object($nav_menu),
+    'menu' =>  wp_get_nav_menu_object( $nav_menu ),
     'menu_class' => 'header-menu navigation-menu',
     'menu_icon'  => $settings['menu_icon'],
 ]);

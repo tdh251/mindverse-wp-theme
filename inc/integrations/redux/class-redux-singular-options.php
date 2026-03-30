@@ -161,6 +161,14 @@ class Redux_Singular_Options extends Hookable {
                     Helpers::get_header_options('private'),
                     array(
                         array(
+                            'id'       => 'header_nav_menu',
+                            'type'     => 'select',
+                            'title'    => esc_html__( 'Header Menu', 'agron' ),
+                            'options'  => Helpers::get_nav_menu_options(),
+                            'default' => '',
+                            'description' => 'When you select Custom Menu. The custom menu will apply to the entire layout when you use Case Nav Menu widget in Elementor and Menu on header layout in Mobile.'
+                        ),
+                        array(
                             'id'       => 'header_logo',
                             'type'     => 'media',
                             'title'    => __('Header Logo', 'mindverse'),

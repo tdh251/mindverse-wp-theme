@@ -98,7 +98,6 @@ class PXL_Hooks extends Hookable {
             'mega-menu'       => __('Mega Menu', 'mindverse') ,
             'hero-section'    => __('Hero Section', 'mindverse'), 
             'panel'           => __('Panel', 'mindverse'),
-            // 'archive'      => __('Archive', 'mindverse')
             'page'            => __('Page', 'mindverse'),
             'section'         => __('Section', 'mindverse')
 		];
@@ -181,7 +180,6 @@ class PXL_Hooks extends Hookable {
         $post_types = $this->options->get_theme_option('pxl_post_type', []);
         $career_status = $this->options->get_theme_option('career_status', true);
 
-        // Xử lý career đồng bộ
         if( $career_status ) {
             array_unshift($post_types, 'career');
             array_unshift($category_labels, 'Categories');

@@ -1,0 +1,4 @@
+/node_modules
+.git
+
+/assets/css/style.min.css.map

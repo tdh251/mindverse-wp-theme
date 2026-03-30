@@ -51,6 +51,12 @@
                         transform: rotate3d(0, 0, 0) !important;
                     }
                 }
+                &[data-hover="transition-fill-animation"], &[data-hover="transition-fill-animation"] {
+                    .direction-item {
+                        transform: translate3d(0, 0, 0);
+                        animation: none;
+                    }
+                }
             }
         }
         a {
@@ -134,7 +140,7 @@
                     }
                 }
             }
-            &:hover {
+            &:hover, &.pxl-onepage-active {
                 &[data-hover*="underline"] { 
                     .menu-link-inner { 
                         &::after {
@@ -156,6 +162,14 @@
                             left: 0;
                             right: auto;
                         }
+                    }
+                }
+            }
+            &.pxl-onepage-active {
+                &[data-hover="transition-fill-animation"], &[data-hover="transition-fill-animation"] {
+                    .direction-item {
+                        transform: translate3d(0, 0, 0);
+                        animation: none;
                     }
                 }
             }

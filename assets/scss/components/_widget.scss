@@ -1,6 +1,11 @@
 @use '../core.scss' as *;
 
 .widget {
+    &.widget_block {
+        a {
+            color: #060F16;
+        }
+    }
     .widget-title {
         margin-bottom: 32px;
     }

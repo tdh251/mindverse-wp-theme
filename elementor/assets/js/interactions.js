@@ -118,9 +118,10 @@
             constructor( $selector ) {
                 this.$selector = $selector;
                 this.activeClass = ''; 
-                
-                this.$selector.on('mouseenter', (ev) => this.update(ev, 'in'));
-                this.$selector.on('mouseleave', (ev) => this.update(ev, 'out'));
+                if( !this.$selector.hasClass( 'pxl-onepage-active' ) ) {
+                    this.$selector.on('mouseenter', (ev) => this.update(ev, 'in'));
+                    this.$selector.on('mouseleave', (ev) => this.update(ev, 'out'));
+                }
             }
             update(ev, prefix) {
                 // if( this.$selector.hasClass('is-active') ) {

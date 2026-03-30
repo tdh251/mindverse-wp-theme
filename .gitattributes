@@ -3,11 +3,12 @@
 .gitignore export-ignore
 .git export-ignore
 
-# /assets/scss export-ignore
-# /assets/css/style.min.css.map export-ignore
-# /woocommerce/assets/scss export-ignore
-# /elementor/assets/scss export-ignore
-# package.json export-ignore
-# package-lock.json export-ignore
-# webpack.config.js export-ignore
-# postcss.config.js export-ignore
+/assets/scss export-ignore
+/assets/css/style.min.css.map export-ignore
+/woocommerce/assets/scss export-ignore
+/elementor/assets/scss export-ignore
+
+package.json export-ignore
+package-lock.json export-ignore
+webpack.config.js export-ignore
+postcss.config.js export-ignore

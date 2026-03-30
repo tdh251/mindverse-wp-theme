@@ -586,11 +586,11 @@
                 $selector.on('mouseenter', '.show-case-button', function() {
                     const index = $buttons.index($(this));
 
-                    $images.removeClass('is-active');
-                    // $buttons.removeClass('is-active');
-
-                    $images.eq(index).addClass('is-active');
-                    // $(this).addClass('is-active');
+                    
+                    if( $images.eq(index).length ) {
+                        $images.removeClass('is-active');
+                        $images.eq(index).addClass('is-active');
+                    }
                     
                 });
             });
