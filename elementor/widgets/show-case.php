@@ -123,7 +123,7 @@ class Show_Case extends Mindverse_Widget_Base {
             ],
             'condition' => [
                 'is_coming_soon!' => 'yes',
-                'layout' => ['1']
+                'layout' => ['1'],
             ]
         ]);
         $repeater = new \Elementor\Repeater();
@@ -245,7 +245,6 @@ class Show_Case extends Mindverse_Widget_Base {
             'name' => 'btns',
             'label' => __('Buttons', 'mindverse'),
             'condition' => [
-                'layout' => ['2'],
                 'is_coming_soon!' => 'yes'
             ],
             'fields' =>  $repeater->get_controls()

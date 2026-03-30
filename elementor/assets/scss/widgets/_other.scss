@@ -972,7 +972,50 @@
                 margin-bottom: 0;
             }
         }
+        &:hover {
+            .show-case-button-group {
+                .button {
+                    transform: translateY(0);
+                    opacity: 1;
+                    transition-delay: calc( var(--button-index, 0) * 0.15s );
+                }
+            }
+            .show-case-image::before {
+                opacity: 1;
+            }
+        }
         .show-case {
+            &-button-group {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include d-flex(10px, center, center);
+                flex-direction: column;
+                z-index: 99;
+                transform: translate(-50%, -50%);
+                .button {
+                    height: 40px;
+                    min-width: 115px;
+                    padding: 0;
+                    background: #FFF;
+                    color: #000;
+                    @include text-fin-button;
+                    border-radius: 8px;
+                    box-shadow: 0 10px 60px 20px rgba(0, 0, 0, 0.08);
+                    transform: translateY(30px);
+                    opacity: 0;
+                    transition-delay: calc( var(--button-index, 0) * -0.15s );
+                    svg {
+                        width: 24px;
+                        height: auto;
+                    }
+                    @media  #{$max-sm} {
+                        padding-inline: 25px;
+                        height: 34px;
+                        font-size: 14px;
+                    }
+                }
+            }
             &-box {
                 border-radius: 50px;
                 border: thin solid rgba(255, 255, 255, 0.00);
@@ -996,7 +1039,7 @@
                         content: '';
                         position: absolute;
                         left: 0;
-                        bottom: 0;
+                        bottom: -1px;
                         width: 100%;
                         height: 122px;
                         background: linear-gradient(180deg, rgba(13, 11, 16, 0.00) 0%, #0C1E21 100%);
@@ -1048,8 +1091,22 @@
                 }
             }
             &-image {
+                position: relative;
                 border-radius: 12px 12px 0 0;
                 box-shadow: 0 43.077px 86.154px -26.923px rgba(24, 29, 39, 0.12);
+                &::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background-color: rgba($color: #FFF, $alpha: 0.15);
+                    backdrop-filter: blur(2px);
+                    display: block;
+                    z-index: 1;
+                    border-radius: inherit;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity .3s linear;
+                }
             }
             &-title {
                 text-align: center;

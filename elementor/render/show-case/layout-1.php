@@ -27,9 +27,22 @@ $coming_soon_class = ( $settings['is_coming_soon'] === 'yes' ) ? ' coming-soon' 
                         <?php echo esc_html__('Coming Soon', 'mindverse'); ?>
                     </div>
                 <?php endif; ?>
-                <a <?php pxl_print_html( $link_attrs ); ?>>
-                    <?php Elementor_Helpers::the_image_to_size( $settings['img']['id'], $img_w, $img_h, []); ?>
-                </a>
+                <?php if( empty( $settings['btns'] ) ) : ?>
+                    <a <?php pxl_print_html( $link_attrs ); ?>>
+                <?php endif; ?>
+                <?php Elementor_Helpers::the_image_to_size( $settings['img']['id'], $img_w, $img_h, []); ?>
+                <?php if( empty( $settings['btns'] ) ) : ?>
+                    </a>
+                <?php endif; ?>
+                <div class="show-case-button-group">
+                    <?php foreach( $settings['btns'] as $i => $btn ) : 
+                        $link_attrs = Elementor_Helpers::get_link_attrs( $btn['link'] );    
+                    ?>
+                        <a class="button show-case-button box-gradient elementor-repeater-item-<?php  echo esc_attr( $btn['_id'] ); ?>" <?php pxl_print_html(  $link_attrs ); ?> style="--button-index: <?php echo esc_attr( $i ); ?>">
+                            <span class="button-text"><?php echo esc_html( $btn['text'] ); ?></span>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>
