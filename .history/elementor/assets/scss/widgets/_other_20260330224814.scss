@@ -959,13 +959,6 @@
 .show-case {
     &[data-layout="1"] {
         transform-style: preserve-3d;
-        &:not(:has(.show-case-button-group)) {
-            .show-case-image {
-                &::before {
-                    display: none;
-                }
-            }
-        }
         &.coming-soon { 
             .show-case-header {
                 margin-bottom: 35px;
@@ -1039,7 +1032,6 @@
                     padding: 20px 33px 0 33px;
                     border-radius: 40px;
                     border: thin solid rgba(255, 255, 255, 0.14);
-                    border-bottom: none;
                     background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%);
                     backdrop-filter: blur(3px);
                     &::after {
@@ -1105,7 +1097,7 @@
                     content: '';
                     position: absolute;
                     inset: 0;
-                    background-color: rgba($color: #000, $alpha: 0.15);
+                    background-color: rgba($color: #FFF, $alpha: 0.15);
                     backdrop-filter: blur(2px);
                     display: block;
                     z-index: 1;

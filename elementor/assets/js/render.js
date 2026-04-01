@@ -134,6 +134,12 @@
 
     $( window ).on( 'elementor/frontend/init', function() {
         renderDef();
+        setTimeout(() => {
+            const video = document.querySelector("#footer-2 video");
+            if (video) {
+            video.playbackRate = 0.75;
+            }
+        }, 500);
         if ( typeof elementor !== 'undefined' ) {
             elementor.hooks.addAction( 'panel/open_editor/widget', renderDef );
             elementor.on( 'preview:loaded', renderDef );

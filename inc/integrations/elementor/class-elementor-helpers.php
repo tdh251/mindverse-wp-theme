@@ -337,6 +337,7 @@ class Elementor_Helpers {
             ''      => __( 'None', 'mindverse' ),
             'bellRing'      => __( 'Bell Ring', 'mindverse' ),
             'spin'      => __( 'Spin', 'mindverse' ),
+            'pulseSpin'      => __( 'Pulse Spin', 'mindverse' ),
             'floating'      => __( 'Floating ', 'mindverse' ),
             'floating2'      => __( 'Floating 2', 'mindverse' ),
             'floating3'      => __( 'Floating 3', 'mindverse' ),

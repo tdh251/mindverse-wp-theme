@@ -693,3 +693,32 @@
   animation: bongBenhStop 4s ease-in-out infinite;
   -webkit-animation: bongBenhStop 4s ease-in-out infinite;
 }
+
+@keyframes pulseSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  15% {
+    transform: rotate(54deg) scale(1.08);
+  }
+  30% {
+    transform: rotate(108deg) scale(0.98);
+  }
+  45% {
+    transform: rotate(162deg) scale(1.12);
+  }
+  60% {
+    transform: rotate(216deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.06);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+[data-loop-animation="pulseSpin"] {
+  animation: pulseSpin 4s linear infinite;
+  -webkit-animation: pulseSpin 4s ease-in-out infinite;
+}

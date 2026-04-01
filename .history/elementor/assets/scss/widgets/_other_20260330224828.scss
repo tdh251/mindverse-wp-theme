@@ -959,13 +959,6 @@
 .show-case {
     &[data-layout="1"] {
         transform-style: preserve-3d;
-        &:not(:has(.show-case-button-group)) {
-            .show-case-image {
-                &::before {
-                    display: none;
-                }
-            }
-        }
         &.coming-soon { 
             .show-case-header {
                 margin-bottom: 35px;
@@ -1105,7 +1098,7 @@
                     content: '';
                     position: absolute;
                     inset: 0;
-                    background-color: rgba($color: #000, $alpha: 0.15);
+                    background-color: rgba($color: #FFF, $alpha: 0.15);
                     backdrop-filter: blur(2px);
                     display: block;
                     z-index: 1;
