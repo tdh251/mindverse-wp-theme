@@ -11,8 +11,8 @@
 	$pxl_server_info = apply_filters( 'pxl_server_info', 
 		[
 			'video_url' => 'https://doc.casethemes.net/video-guide/',
-			'demo_url' => 'https://demo.casethemes.net/',
-			'docs_url' => 'https://doc.casethemes.net/', 
+			'demo_url' => 'https://mindverse.casethemes.net/',
+			'docs_url' => 'https://doc.casethemes.net/mindverse/', 
 			'support_url' => 'https://casethemes.ticksy.com/'] 
 		) ; 
 ?>
